@@ -25,8 +25,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.1.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -103,8 +103,8 @@
     </Compile>
     <Compile Include="Services\ClientStorage.cs" />
     <Compile Include="Services\LocalizationManager.cs" />
-    <Compile Include="Settings.cs" />
     <Compile Include="ThemeManager.cs" />
+    <Compile Include="Themes\AppTheme.cs" />
     <Compile Include="Views\ClientsView.xaml.cs">
       <DependentUpon>ClientsView.xaml</DependentUpon>
     </Compile>
@@ -198,6 +198,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ControlStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\DarkTheme.xaml">

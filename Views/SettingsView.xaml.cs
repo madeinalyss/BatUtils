@@ -1,7 +1,6 @@
-﻿using System.Globalization;
+﻿using BatUtils.Themes;
 using System.Windows;
 using System.Windows.Controls;
-using BatUtils.Services;
 
 namespace BatUtils.Views
 {
@@ -10,47 +9,60 @@ namespace BatUtils.Views
         public SettingsView()
         {
             InitializeComponent();
+
             UpdateThemeSelection();
             UpdateLanguageSelection();
         }
 
         private void UpdateThemeSelection()
         {
-            ThemeComboBox.SelectedIndex =
-                Properties.Settings.Default.Theme == "Dark"
-                    ? 0
-                    : 1;
+            switch (Properties.Settings.Default.Theme)
+            {
+                case "Light":
+                    LightThemeRadio.IsChecked = true;
+                    break;
+                case "System":
+                    SystemThemeRadio.IsChecked = true;
+                    break;
+                default:
+                    DarkThemeRadio.IsChecked = true;
+                    break;
+            }
         }
 
         private void UpdateLanguageSelection()
         {
-            EnglishRadio.IsChecked =
-                Properties.Settings.Default.Language == "en";
-
-            RussianRadio.IsChecked =
-                Properties.Settings.Default.Language == "ru";
-        }
-
-        private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ThemeComboBox.SelectedItem is ComboBoxItem selected)
+            foreach (ComboBoxItem item in LanguageComboBox.Items)
             {
-                ThemeManager.SetTheme(selected.Tag.ToString() == "Dark");
-
-                Properties.Settings.Default.Theme = selected.Tag.ToString();
-                Properties.Settings.Default.Save();
+                if ((string)item.Tag == Properties.Settings.Default.Language)
+                {
+                    LanguageComboBox.SelectedItem = item;
+                    break;
+                }
             }
         }
 
-        private void EnglishRadio_Checked(object sender, RoutedEventArgs e)
+        private void ThemeRadio_Checked(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.Language = "en";
+            AppTheme theme = AppTheme.Dark;
+
+            if (LightThemeRadio.IsChecked == true)
+                theme = AppTheme.Light;
+            else if (SystemThemeRadio.IsChecked == true)
+                theme = AppTheme.System;
+
+            ThemeManager.SetTheme(theme);
+
+            Properties.Settings.Default.Theme = theme.ToString();
             Properties.Settings.Default.Save();
         }
 
-        private void RussianRadio_Checked(object sender, RoutedEventArgs e)
+        private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Properties.Settings.Default.Language = "ru";
+            if (!(LanguageComboBox.SelectedItem is ComboBoxItem selected))
+                return;
+
+            Properties.Settings.Default.Language = selected.Tag.ToString();
             Properties.Settings.Default.Save();
         }
     }

@@ -157,10 +157,10 @@
     <value>Язык</value>
   </data>
   <data name="SettingsLanguageEnglish" xml:space="preserve">
-    <value>Английский</value>
+    <value>English</value>
   </data>
   <data name="SettingsLanguageRussian" xml:space="preserve">
-    <value>Русский</value>
+    <value>Russian</value>
   </data>
   <data name="ClientInfo" xml:space="preserve">
     <value>Информация о клиенте</value>
@@ -251,5 +251,11 @@
   </data>
   <data name="InfoTitle" xml:space="preserve">
     <value>Инфо</value>
+  </data>
+  <data name="SettingsRestartRequired" xml:space="preserve">
+    <value>Изменения языка вступят в силу после перезапуска BAT Utils</value>
+  </data>
+  <data name="SettingsThemeSystem" xml:space="preserve">
+    <value>Системная</value>
   </data>
 </root>

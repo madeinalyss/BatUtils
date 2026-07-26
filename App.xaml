@@ -7,13 +7,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <!-- Default theme -->
                 <ResourceDictionary Source="Themes/DarkTheme.xaml"/>
+                <ResourceDictionary Source="Styles/ControlStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-
-            <!-- Your AppButton style stays here. 
-                 It uses DynamicResource internally, so it will update automatically! -->
-            <Style x:Key="AppButton" TargetType="Button">
-                <!-- ... (keep your existing AppButton style exactly as it was) ... -->
-            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -421,6 +421,15 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Language changes will take effect after restarting BAT Utils.
+        /// </summary>
+        public static string SettingsRestartRequired {
+            get {
+                return ResourceManager.GetString("SettingsRestartRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Theme.
         /// </summary>
         public static string SettingsTheme {
@@ -444,6 +453,15 @@ namespace BatUtils.Properties {
         public static string SettingsThemeLight {
             get {
                 return ResourceManager.GetString("SettingsThemeLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System.
+        /// </summary>
+        public static string SettingsThemeSystem {
+            get {
+                return ResourceManager.GetString("SettingsThemeSystem", resourceCulture);
             }
         }
         

@@ -1,4 +1,6 @@
 ﻿using BatUtils.Services;
+using BatUtils.Themes;
+using System;
 using System.Windows;
 
 namespace BatUtils
@@ -12,8 +14,10 @@ namespace BatUtils
             LocalizationManager.SetLanguage(
                 global::BatUtils.Properties.Settings.Default.Language);
 
-            ThemeManager.SetTheme(
-                global::BatUtils.Properties.Settings.Default.Theme == "Dark");
+            if (!Enum.TryParse(global::BatUtils.Properties.Settings.Default.Theme, out AppTheme theme))
+                theme = AppTheme.Dark;
+
+            ThemeManager.SetTheme(theme);
         }
     }
 }

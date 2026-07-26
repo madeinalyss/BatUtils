@@ -32,33 +32,35 @@
                                Foreground="{DynamicResource PrimaryForegroundBrush}"
                                Margin="0,0,0,14"/>
 
-                    <Grid>
+                    <StackPanel Orientation="Horizontal">
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="140"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Column="0"
-                                   Text="{x:Static properties:Strings.SettingsTheme}"
+                        <TextBlock Text="{x:Static properties:Strings.SettingsTheme}"
+                                   Foreground="{DynamicResource SecondaryForegroundBrush}"
                                    VerticalAlignment="Center"
-                                   Foreground="{DynamicResource SecondaryForegroundBrush}"/>
+                                   Margin="0,0,16,0"/>
 
-                        <ComboBox x:Name="ThemeComboBox"
-                                  Grid.Column="1"
-                                  Width="140"
-                                  HorizontalAlignment="Left"
-                                  SelectionChanged="ThemeComboBox_SelectionChanged">
+                        <RadioButton x:Name="SystemThemeRadio"
+                                     GroupName="Theme"
+                                     Content="{x:Static properties:Strings.SettingsThemeSystem}"
+                                     VerticalAlignment="Center"
+                                     Margin="0,0,16,0"
+                                     Checked="ThemeRadio_Checked"/>
 
-                            <ComboBoxItem Tag="Dark"
-                                          Content="{x:Static properties:Strings.SettingsThemeDark}"/>
+                        <RadioButton x:Name="DarkThemeRadio"
+                                     GroupName="Theme"
+                                     Content="{x:Static properties:Strings.SettingsThemeDark}"
+                                     VerticalAlignment="Center"
+                                     Margin="0,0,16,0"
+                                     Checked="ThemeRadio_Checked"/>
 
-                            <ComboBoxItem Tag="Light"
-                                          Content="{x:Static properties:Strings.SettingsThemeLight}"/>
+                        <RadioButton x:Name="LightThemeRadio"
+                                     GroupName="Theme"
+                                     Content="{x:Static properties:Strings.SettingsThemeLight}"
+                                     VerticalAlignment="Center"
+                                     Margin="0,0,16,0"
+                                     Checked="ThemeRadio_Checked"/>
 
-                        </ComboBox>
-
-                    </Grid>
+                    </StackPanel>
 
                 </StackPanel>
 
@@ -80,42 +82,38 @@
                                Foreground="{DynamicResource PrimaryForegroundBrush}"
                                Margin="0,0,0,14"/>
 
-                    <StackPanel Margin="8,0,0,0">
+                    <Grid Margin="0,0,0,12">
 
-                        <RadioButton x:Name="EnglishRadio"
-                                     GroupName="Language"
-                                     Margin="0,0,0,8"
-                                     Checked="EnglishRadio_Checked">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                            <StackPanel Orientation="Horizontal">
+                        <TextBlock Grid.Column="0"
+                                   Text="{x:Static properties:Strings.SettingsLanguage}"
+                                   VerticalAlignment="Center"
+                                   Foreground="{DynamicResource SecondaryForegroundBrush}"/>
 
-                                <TextBlock FontSize="18"
-                                           Text="🇺🇸"
-                                           Margin="0,0,8,0"/>
+                        <ComboBox x:Name="LanguageComboBox"
+                                  Grid.Column="1"
+                                  Width="180"
+                                  HorizontalAlignment="Left"
+                                  SelectionChanged="LanguageComboBox_SelectionChanged">
 
-                                <TextBlock Text="{x:Static properties:Strings.SettingsLanguageEnglish}"/>
+                            <ComboBoxItem Tag="en"
+                                          Content="English"/>
 
-                            </StackPanel>
+                            <ComboBoxItem Tag="ru"
+                                          Content="Русский"/>
 
-                        </RadioButton>
+                        </ComboBox>
 
-                        <RadioButton x:Name="RussianRadio"
-                                     GroupName="Language"
-                                     Checked="RussianRadio_Checked">
+                    </Grid>
 
-                            <StackPanel Orientation="Horizontal">
-
-                                <TextBlock FontSize="18"
-                                           Text="🇷🇺"
-                                           Margin="0,0,8,0"/>
-
-                                <TextBlock Text="{x:Static properties:Strings.SettingsLanguageRussian}"/>
-
-                            </StackPanel>
-
-                        </RadioButton>
-
-                    </StackPanel>
+                    <TextBlock Text="{x:Static properties:Strings.SettingsRestartRequired}"
+                               FontSize="12"
+                               TextWrapping="Wrap"
+                               Foreground="{DynamicResource TertiaryForegroundBrush}"/>
 
                 </StackPanel>
 

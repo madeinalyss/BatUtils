@@ -252,4 +252,10 @@
   <data name="InfoTitle" xml:space="preserve">
     <value>Info</value>
   </data>
+  <data name="SettingsRestartRequired" xml:space="preserve">
+    <value>Language changes will take effect after restarting BAT Utils</value>
+  </data>
+  <data name="SettingsThemeSystem" xml:space="preserve">
+    <value>System</value>
+  </data>
 </root>
