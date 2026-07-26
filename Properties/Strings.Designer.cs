@@ -340,11 +340,56 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Info.
+        ///   Looks up a localized string similar to Version.
         /// </summary>
-        public static string InfoTitle {
+        public static string InfoAppVersion {
             get {
-                return ResourceManager.GetString("InfoTitle", resourceCulture);
+                return ResourceManager.GetString("InfoAppVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Architecture.
+        /// </summary>
+        public static string InfoArchitecture {
+            get {
+                return ResourceManager.GetString("InfoArchitecture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Runtime.
+        /// </summary>
+        public static string InfoDotNet {
+            get {
+                return ResourceManager.GetString("InfoDotNet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OS.
+        /// </summary>
+        public static string InfoOs {
+            get {
+                return ResourceManager.GetString("InfoOs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System.
+        /// </summary>
+        public static string InfoSystemHeader {
+            get {
+                return ResourceManager.GetString("InfoSystemHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilities for UCS software from BAT.
+        /// </summary>
+        public static string InfoTagline {
+            get {
+                return ResourceManager.GetString("InfoTagline", resourceCulture);
             }
         }
         

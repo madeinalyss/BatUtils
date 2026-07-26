@@ -5,11 +5,71 @@
 
     <Grid Background="{DynamicResource WindowBackgroundBrush}">
 
-        <TextBlock Text="{x:Static properties:Strings.InfoTitle}"
-                   FontSize="28"
-                   FontWeight="SemiBold"
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="360">
+
+            <Image Source="/Assets/ant.ico"
+                   Width="64" Height="64"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+                   Margin="0,0,0,14"/>
+
+            <TextBlock Text="BAT Utils"
+                       FontSize="24"
+                       FontWeight="SemiBold"
+                       Foreground="{DynamicResource PrimaryForegroundBrush}"
+                       HorizontalAlignment="Center"/>
+
+            <TextBlock Text="{x:Static properties:Strings.InfoTagline}"
+                       FontSize="13"
+                       Foreground="{DynamicResource TertiaryForegroundBrush}"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,20"/>
+
+            <Border Background="{DynamicResource PanelBackgroundBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="18">
+
+                <StackPanel>
+
+                    <TextBlock Text="{x:Static properties:Strings.InfoSystemHeader}"
+                               Style="{StaticResource SectionHeader}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properties:Strings.InfoOs}" Style="{StaticResource InfoLabel}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" x:Name="OsValueText" Style="{StaticResource InfoValue}"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properties:Strings.InfoArchitecture}" Style="{StaticResource InfoLabel}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" x:Name="ArchValueText" Style="{StaticResource InfoValue}"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static properties:Strings.InfoDotNet}" Style="{StaticResource InfoLabel}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" x:Name="DotNetValueText" Style="{StaticResource InfoValue}"/>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="{x:Static properties:Strings.InfoAppVersion}" Style="{StaticResource InfoLabel}" Margin="0,0,8,0"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" x:Name="AppVersionValueText" Style="{StaticResource InfoValue}" Margin="0"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+        </StackPanel>
 
     </Grid>
 

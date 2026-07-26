@@ -1,8 +1,6 @@
 ﻿using BatUtils.Controls;
-using BatUtils.Models;
 using BatUtils.Views;
 using System;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;

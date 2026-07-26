@@ -55,23 +55,6 @@
             <Setter Property="BorderThickness" Value="0,0,1,1"/>
             <Setter Property="Padding" Value="8,5"/>
         </Style>
-        <Style x:Key="InfoLabel" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="{DynamicResource TertiaryForegroundBrush}"/>
-            <Setter Property="Margin" Value="0,0,8,4"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-        <Style x:Key="InfoValue" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundBrush}"/>
-            <Setter Property="Margin" Value="0,0,0,4"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
-        </Style>
-        <Style x:Key="SectionHeader" TargetType="TextBlock">
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundBrush}"/>
-            <Setter Property="Margin" Value="0,0,0,8"/>
-            <Setter Property="FontSize" Value="14"/>
-        </Style>
     </UserControl.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -147,7 +130,7 @@
                             <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properties:Strings.ClientsCode}" Style="{StaticResource InfoLabel}"/>
                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedItem.Code, ElementName=ClientsGrid, TargetNullValue='—', FallbackValue='—'}" Style="{StaticResource InfoValue}"/>
                             <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properties:Strings.ClientsName}" Style="{StaticResource InfoLabel}"/>
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedItem.Name, ElementName=ClientsGrid, TargetNullValue='No client selected', FallbackValue='No client selected'}" Style="{StaticResource InfoValue}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedItem.Name, ElementName=ClientsGrid, TargetNullValue='—', FallbackValue='—'}" Style="{StaticResource InfoValue}"/>
                         </Grid>
                     </StackPanel>
                     <Border Grid.Column="1" Width="1" Background="{DynamicResource SeparatorBrush}" Margin="0,4"/>

@@ -27,12 +27,18 @@ namespace BatUtils
         private static void ApplyThemeDictionary(bool isDark)
         {
             string themePath = isDark ? "Themes/DarkTheme.xaml" : "Themes/LightTheme.xaml";
+            var merged = Application.Current.Resources.MergedDictionaries;
+
+            for (int i = merged.Count - 1; i >= 0; i--)
+            {
+                string src = merged[i].Source?.OriginalString ?? string.Empty;
+                if (src.IndexOf("DarkTheme.xaml", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    src.IndexOf("LightTheme.xaml", StringComparison.OrdinalIgnoreCase) >= 0)
+                    merged.RemoveAt(i);
+            }
+
             var newTheme = new ResourceDictionary { Source = new Uri(themePath, UriKind.Relative) };
-
-            if (_currentTheme != null)
-                Application.Current.Resources.MergedDictionaries.Remove(_currentTheme);
-
-            Application.Current.Resources.MergedDictionaries.Add(newTheme);
+            merged.Add(newTheme);
             _currentTheme = newTheme;
         }
 

@@ -249,13 +249,28 @@
   <data name="ToolsTitle" xml:space="preserve">
     <value>Инструменты</value>
   </data>
-  <data name="InfoTitle" xml:space="preserve">
-    <value>Инфо</value>
-  </data>
   <data name="SettingsRestartRequired" xml:space="preserve">
     <value>Изменения языка вступят в силу после перезапуска BAT Utils</value>
   </data>
   <data name="SettingsThemeSystem" xml:space="preserve">
     <value>Системная</value>
+  </data>
+  <data name="InfoTagline" xml:space="preserve">
+    <value>Утилиты для ПО UCS от BAT</value>
+  </data>
+  <data name="InfoSystemHeader" xml:space="preserve">
+    <value>Система</value>
+  </data>
+  <data name="InfoOs" xml:space="preserve">
+    <value>ОС</value>
+  </data>
+  <data name="InfoArchitecture" xml:space="preserve">
+    <value>Архитектура</value>
+  </data>
+  <data name="InfoDotNet" xml:space="preserve">
+    <value>Среда выполнения</value>
+  </data>
+  <data name="InfoAppVersion" xml:space="preserve">
+    <value>Версия</value>
   </data>
 </root>

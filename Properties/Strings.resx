@@ -249,13 +249,28 @@
   <data name="ToolsTitle" xml:space="preserve">
     <value>Tools</value>
   </data>
-  <data name="InfoTitle" xml:space="preserve">
-    <value>Info</value>
-  </data>
   <data name="SettingsRestartRequired" xml:space="preserve">
     <value>Language changes will take effect after restarting BAT Utils</value>
   </data>
   <data name="SettingsThemeSystem" xml:space="preserve">
     <value>System</value>
+  </data>
+  <data name="InfoTagline" xml:space="preserve">
+    <value>Utilities for UCS software from BAT</value>
+  </data>
+  <data name="InfoSystemHeader" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="InfoOs" xml:space="preserve">
+    <value>OS</value>
+  </data>
+  <data name="InfoArchitecture" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
+  <data name="InfoDotNet" xml:space="preserve">
+    <value>Runtime</value>
+  </data>
+  <data name="InfoAppVersion" xml:space="preserve">
+    <value>Version</value>
   </data>
 </root>
