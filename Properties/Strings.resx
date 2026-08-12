@@ -273,4 +273,16 @@
   <data name="InfoAppVersion" xml:space="preserve">
     <value>Version</value>
   </data>
+  <data name="SettingsGeneral" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="SettingsRootFolder" xml:space="preserve">
+    <value>Root folder</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
+  <data name="SettingsSystem" xml:space="preserve">
+    <value>System</value>
+  </data>
 </root>

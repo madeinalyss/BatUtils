@@ -1,6 +1,7 @@
 ﻿using BatUtils.Themes;
 using System.Windows;
 using System.Windows.Controls;
+using Ookii.Dialogs.Wpf;
 
 namespace BatUtils.Views
 {
@@ -12,6 +13,8 @@ namespace BatUtils.Views
 
             UpdateThemeSelection();
             UpdateLanguageSelection();
+
+            RootFolderTextBox.Text = Properties.Settings.Default.RootFolder;
         }
 
         private void UpdateThemeSelection()
@@ -39,6 +42,27 @@ namespace BatUtils.Views
                     LanguageComboBox.SelectedItem = item;
                     break;
                 }
+            }
+        }
+
+        private void RootFolderTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Properties.Settings.Default.RootFolder = RootFolderTextBox.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void BrowseRootFolder_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new VistaFolderBrowserDialog
+            {
+                Description = Properties.Strings.SettingsRootFolder,
+                SelectedPath = RootFolderTextBox.Text,
+                UseDescriptionForTitle = true
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                RootFolderTextBox.Text = dialog.SelectedPath;
             }
         }
 

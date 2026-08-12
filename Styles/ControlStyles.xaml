@@ -23,6 +23,42 @@
         <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
     </Style>
 
+    <!-- ===================== TextBox ===================== -->
+
+    <Style x:Key="AppTextBox" TargetType="TextBox">
+
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Padding" Value="8,4"/>
+        <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource CaretBrush}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        <Style.Triggers>
+
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush"
+                    Value="{DynamicResource ButtonHoverBorderBrush}"/>
+            </Trigger>
+
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="BorderBrush"
+                    Value="{DynamicResource AccentBrush}"/>
+            </Trigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground"
+                    Value="{DynamicResource DisabledForegroundBrush}"/>
+                <Setter Property="Background"
+                    Value="{DynamicResource ButtonDisabledBackgroundBrush}"/>
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
     <!-- ===================== Button ===================== -->
 
     <Style TargetType="Button">

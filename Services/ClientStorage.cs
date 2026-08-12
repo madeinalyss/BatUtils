@@ -12,6 +12,9 @@ namespace BatUtils.Services
     {
         private const char Separator = ';';
 
+        private const string Header =
+            "Enabled;Code;Name;RKServerAddress;RKServerPort;SHServerAddress;SHServerPort";
+
         private static readonly string DataDirectory =
             Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
 
@@ -59,7 +62,7 @@ namespace BatUtils.Services
 
             using (var writer = new StreamWriter(ClientsFile, false))
             {
-                writer.WriteLine("Enabled;Code;Name;RKServerAddress;RKServerPort;SHServerAddress;SHServerPort");
+                writer.WriteLine(Header);
 
                 foreach (Client client in clients)
                 {
@@ -84,7 +87,7 @@ namespace BatUtils.Services
             {
                 File.WriteAllText(
                     ClientsFile,
-                    "Enabled;Code;Name;RKServerAddress;RKServerPort;SHServerAddress;SHServerPort" + Environment.NewLine);
+                    Header + Environment.NewLine);
             }
         }
     }

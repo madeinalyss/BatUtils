@@ -46,5 +46,17 @@ namespace BatUtils.Properties {
                 this["Language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\UCS")]
+        public string RootFolder {
+            get {
+                return ((string)(this["RootFolder"]));
+            }
+            set {
+                this["RootFolder"] = value;
+            }
+        }
     }
 }

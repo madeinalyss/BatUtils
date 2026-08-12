@@ -54,6 +54,8 @@
             <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
             <Setter Property="BorderThickness" Value="0,0,1,1"/>
             <Setter Property="Padding" Value="8,5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
     </UserControl.Resources>
     <Grid Margin="10">
@@ -90,10 +92,12 @@
                   CanUserDeleteRows="False"
                   GridLinesVisibility="None"
                   SelectionMode="Single"
-                  SelectionUnit="FullRow">
+                  SelectionUnit="FullRow"
+                  HorizontalAlignment="Stretch"
+                  ColumnWidth="*">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="{x:Static properties:Strings.ClientsCode}" Binding="{Binding Code}" ElementStyle="{StaticResource CenteredCellText}"/>
-                <DataGridTextColumn Header="{x:Static properties:Strings.ClientsName}" Binding="{Binding Name}" ElementStyle="{StaticResource CenteredCellText}"/>
+                <DataGridTextColumn Width="*" Header="{x:Static properties:Strings.ClientsCode}" Binding="{Binding Code}" ElementStyle="{StaticResource CenteredCellText}"/>
+                <DataGridTextColumn Width="*" Header="{x:Static properties:Strings.ClientsName}" Binding="{Binding Name}" ElementStyle="{StaticResource CenteredCellText}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Border Grid.Row="4"

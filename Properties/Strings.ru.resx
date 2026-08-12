@@ -273,4 +273,16 @@
   <data name="InfoAppVersion" xml:space="preserve">
     <value>Версия</value>
   </data>
+  <data name="SettingsGeneral" xml:space="preserve">
+    <value>Общее</value>
+  </data>
+  <data name="SettingsRootFolder" xml:space="preserve">
+    <value>Корневая директория</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Обзор...</value>
+  </data>
+  <data name="SettingsSystem" xml:space="preserve">
+    <value>Система</value>
+  </data>
 </root>

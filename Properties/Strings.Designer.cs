@@ -70,6 +70,15 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Browse....
+        /// </summary>
+        public static string Browse {
+            get {
+                return ResourceManager.GetString("Browse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Addr:Port.
         /// </summary>
         public static string ClientAddrAndPort {
@@ -439,6 +448,15 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        public static string SettingsGeneral {
+            get {
+                return ResourceManager.GetString("SettingsGeneral", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string SettingsLanguage {
@@ -471,6 +489,24 @@ namespace BatUtils.Properties {
         public static string SettingsRestartRequired {
             get {
                 return ResourceManager.GetString("SettingsRestartRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Root folder.
+        /// </summary>
+        public static string SettingsRootFolder {
+            get {
+                return ResourceManager.GetString("SettingsRootFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System.
+        /// </summary>
+        public static string SettingsSystem {
+            get {
+                return ResourceManager.GetString("SettingsSystem", resourceCulture);
             }
         }
         
