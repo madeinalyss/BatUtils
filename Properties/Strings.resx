@@ -291,4 +291,37 @@
   <data name="ClientWindowEnabled" xml:space="preserve">
     <value>Active</value>
   </data>
+  <data name="ClientsExecutableNotFoundTitle" xml:space="preserve">
+    <value>File not found</value>
+  </data>
+  <data name="ClientsRK7NotFoundMessage" xml:space="preserve">
+    <value>RK7 Manager not found:\n\n{0}</value>
+  </data>
+  <data name="ClientsSH5NotFoundMessage" xml:space="preserve">
+    <value>SH5 Client not found:\n\n{0}</value>
+  </data>
+  <data name="ClientsLaunchErrorTitle" xml:space="preserve">
+    <value>Launch error</value>
+  </data>
+  <data name="ClientsLaunchErrorMessage" xml:space="preserve">
+    <value>Failed to launch {0}:\n\n{1}</value>
+  </data>
+  <data name="ClientsFolderNotFoundTitle" xml:space="preserve">
+    <value>Folder not found</value>
+  </data>
+  <data name="ClientsFolderNotFoundMessage" xml:space="preserve">
+    <value>Client folder not found:\n\n{0}</value>
+  </data>
+  <data name="ClientsOpenFolderErrorTitle" xml:space="preserve">
+    <value>Open error</value>
+  </data>
+  <data name="ClientsOpenFolderErrorMessage" xml:space="preserve">
+    <value>Failed to open client folder:\n\n{0}</value>
+  </data>
+  <data name="ClientRK7Name" xml:space="preserve">
+    <value>RK7 Manager</value>
+  </data>
+  <data name="ClientSH5Name" xml:space="preserve">
+    <value>SH5 Client</value>
+  </data>
 </root>

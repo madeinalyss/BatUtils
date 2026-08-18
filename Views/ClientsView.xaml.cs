@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace BatUtils.Views
 {
@@ -85,6 +86,8 @@ namespace BatUtils.Views
 
         private bool _showInactiveClients;
 
+        private string _filterText = string.Empty;
+        private DispatcherTimer _filterTimer;
 
         public ClientsView()
         {
@@ -96,6 +99,10 @@ namespace BatUtils.Views
             _clientsView.Filter = ClientFilter;
 
             ClientsGrid.ItemsSource = _clientsView;
+
+            // debounce timer for search
+            _filterTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(300) };
+            _filterTimer.Tick += FilterTimer_Tick;
 
             ReloadClients();
         }
@@ -131,10 +138,17 @@ namespace BatUtils.Views
             if (client == null)
                 return false;
 
-            if (_showInactiveClients)
+            // hide inactive unless requested
+            if (!_showInactiveClients && !client.Enabled)
+                return false;
+
+            if (string.IsNullOrWhiteSpace(_filterText))
                 return true;
 
-            return client.Enabled;
+            string q = _filterText.Trim();
+
+            return (client.Code != null && client.Code.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0)
+                || (client.Name != null && client.Name.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
 
@@ -144,6 +158,31 @@ namespace BatUtils.Views
             {
                 return ClientsGrid.SelectedItem as Client;
             }
+        }
+
+        private void FilterTimer_Tick(object sender, EventArgs e)
+        {
+            _filterTimer.Stop();
+            _clientsView.Refresh();
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            _filterTimer.Stop();
+            _filterText = SearchTextBox.Text ?? string.Empty;
+            _filterTimer.Start();
+        }
+
+        private void ShowInactiveCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            _showInactiveClients = true;
+            _clientsView.Refresh();
+        }
+
+        private void ShowInactiveCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _showInactiveClients = false;
+            _clientsView.Refresh();
         }
 
 
@@ -335,9 +374,8 @@ namespace BatUtils.Views
             {
                 MessageBox.Show(
                     Window.GetWindow(this),
-                    "RK7 Manager не найден:\n\n" +
-                    executablePath,
-                    "Файл не найден",
+                    string.Format(Properties.Strings.ClientsRK7NotFoundMessage, executablePath),
+                    Properties.Strings.ClientsExecutableNotFoundTitle,
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning);
 
@@ -346,23 +384,22 @@ namespace BatUtils.Views
 
             try
             {
-                Process.Start(
-                    new ProcessStartInfo
-                    {
-                        FileName = executablePath,
-                        UseShellExecute = true
-                    });
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = executablePath,
+                    UseShellExecute = true
+                });
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
                     Window.GetWindow(this),
-                    "Не удалось запустить RK7 Manager:\n\n" +
-                    ex.Message,
-                    "Ошибка запуска",
+                    string.Format(Properties.Strings.ClientsLaunchErrorMessage, Properties.Strings.ClientRK7Name, ex.Message),
+                    Properties.Strings.ClientsLaunchErrorTitle,
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
+
         }
 
 
@@ -389,9 +426,8 @@ namespace BatUtils.Views
             {
                 MessageBox.Show(
                     Window.GetWindow(this),
-                    "SH5 Client не найден:\n\n" +
-                    executablePath,
-                    "Файл не найден",
+                    string.Format(Properties.Strings.ClientsSH5NotFoundMessage, executablePath),
+                    Properties.Strings.ClientsExecutableNotFoundTitle,
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning);
 
@@ -400,23 +436,22 @@ namespace BatUtils.Views
 
             try
             {
-                Process.Start(
-                    new ProcessStartInfo
-                    {
-                        FileName = executablePath,
-                        UseShellExecute = true
-                    });
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = executablePath,
+                    UseShellExecute = true
+                });
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
                     Window.GetWindow(this),
-                    "Не удалось запустить SH5 Client:\n\n" +
-                    ex.Message,
-                    "Ошибка запуска",
+                    string.Format(Properties.Strings.ClientsLaunchErrorMessage, Properties.Strings.ClientSH5Name, ex.Message),
+                    Properties.Strings.ClientsLaunchErrorTitle,
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
+
         }
 
 
@@ -443,9 +478,8 @@ namespace BatUtils.Views
             {
                 MessageBox.Show(
                     Window.GetWindow(this),
-                    "Папка клиента не найдена:\n\n" +
-                    clientFolder,
-                    "Папка не найдена",
+                    string.Format(Properties.Strings.ClientsFolderNotFoundMessage, clientFolder),
+                    Properties.Strings.ClientsFolderNotFoundTitle,
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning);
 
@@ -454,23 +488,22 @@ namespace BatUtils.Views
 
             try
             {
-                Process.Start(
-                    new ProcessStartInfo
-                    {
-                        FileName = clientFolder,
-                        UseShellExecute = true
-                    });
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = clientFolder,
+                    UseShellExecute = true
+                });
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
                     Window.GetWindow(this),
-                    "Не удалось открыть папку клиента:\n\n" +
-                    ex.Message,
-                    "Ошибка",
+                    string.Format(Properties.Strings.ClientsOpenFolderErrorMessage, ex.Message),
+                    Properties.Strings.ClientsOpenFolderErrorTitle,
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
+
         }
     }
 }

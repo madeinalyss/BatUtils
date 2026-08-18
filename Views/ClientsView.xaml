@@ -6,164 +6,7 @@
 
     <UserControl.Resources>
 
-        <!-- ========================================================= -->
-        <!-- BUTTONS -->
-        <!-- ========================================================= -->
-
-        <Style x:Key="ToolbarButton"
-               TargetType="Button"
-               BasedOn="{StaticResource {x:Type Button}}">
-
-            <Setter Property="Height" Value="28"/>
-            <Setter Property="MinWidth" Value="70"/>
-            <Setter Property="Margin" Value="0,0,6,0"/>
-            <Setter Property="Padding" Value="10,0"/>
-
-        </Style>
-
-
-        <Style x:Key="ActionButton"
-               TargetType="Button"
-               BasedOn="{StaticResource ToolbarButton}">
-
-            <Setter Property="Width" Value="100"/>
-            <Setter Property="Margin" Value="0,10,0,0"/>
-
-        </Style>
-
-
-        <!-- ========================================================= -->
-        <!-- DATAGRID -->
-        <!-- ========================================================= -->
-
-        <Style TargetType="DataGridRow">
-
-            <Setter Property="Background"
-                    Value="{DynamicResource WindowBackgroundBrush}"/>
-
-            <Setter Property="Foreground"
-                    Value="{DynamicResource PrimaryForegroundBrush}"/>
-
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource BorderBrush}"/>
-
-            <Setter Property="BorderThickness"
-                    Value="0"/>
-
-            <Setter Property="Height"
-                    Value="24"/>
-
-            <Setter Property="SnapsToDevicePixels"
-                    Value="True"/>
-
-            <Style.Triggers>
-
-                <Trigger Property="IsMouseOver"
-                         Value="True">
-
-                    <Setter Property="Background"
-                            Value="{DynamicResource RowHoverBackgroundBrush}"/>
-
-                </Trigger>
-
-                <Trigger Property="IsSelected"
-                         Value="True">
-
-                    <Setter Property="Background"
-                            Value="{DynamicResource SelectedBackgroundBrush}"/>
-
-                    <Setter Property="Foreground"
-                            Value="{DynamicResource SelectedForegroundBrush}"/>
-
-                </Trigger>
-
-            </Style.Triggers>
-
-        </Style>
-
-
-        <Style TargetType="DataGridCell">
-
-            <Setter Property="Background"
-                    Value="Transparent"/>
-
-            <Setter Property="BorderThickness"
-                    Value="0"/>
-
-            <Setter Property="Padding"
-                    Value="8,3"/>
-
-            <Setter Property="FocusVisualStyle"
-                    Value="{x:Null}"/>
-
-            <Style.Triggers>
-
-                <Trigger Property="IsSelected"
-                         Value="True">
-
-                    <Setter Property="Background"
-                            Value="{DynamicResource SelectedBackgroundBrush}"/>
-
-                    <Setter Property="Foreground"
-                            Value="{DynamicResource SelectedForegroundBrush}"/>
-
-                    <Setter Property="BorderBrush"
-                            Value="{DynamicResource SelectedBackgroundBrush}"/>
-
-                </Trigger>
-
-            </Style.Triggers>
-
-        </Style>
-
-
-        <Style x:Key="CenteredCellText"
-               TargetType="TextBlock">
-
-            <Setter Property="HorizontalAlignment"
-                    Value="Center"/>
-
-            <Setter Property="VerticalAlignment"
-                    Value="Center"/>
-
-            <Setter Property="TextAlignment"
-                    Value="Center"/>
-
-        </Style>
-
-
-        <Style TargetType="DataGridColumnHeader">
-
-            <Setter Property="Background"
-                    Value="{DynamicResource ButtonBackgroundBrush}"/>
-
-            <Setter Property="Foreground"
-                    Value="{DynamicResource PrimaryForegroundBrush}"/>
-
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource BorderBrush}"/>
-
-            <Setter Property="BorderThickness"
-                    Value="0,0,1,1"/>
-
-            <Setter Property="Padding"
-                    Value="8,5"/>
-
-            <Setter Property="HorizontalContentAlignment"
-                    Value="Center"/>
-
-            <Setter Property="VerticalContentAlignment"
-                    Value="Center"/>
-
-        </Style>
-
-
-        <!-- ========================================================= -->
-        <!-- SOFTWARE STATUS -->
-        <!-- ========================================================= -->
-
-        <local:SoftwareInstalledConverter
-            x:Key="SoftwareInstalledConverter"/>
+        <local:SoftwareInstalledConverter x:Key="SoftwareInstalledConverter"/>
 
     </UserControl.Resources>
 
@@ -226,9 +69,19 @@
             </StackPanel>
 
 
+            <!-- Center / Search -->
+            <TextBox x:Name="SearchTextBox"
+                     Grid.Column="1"
+                     Style="{StaticResource AppTextBox}"
+                     Height="28"
+                     Margin="8,0"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"
+                     TextChanged="SearchTextBox_TextChanged"/>
+
+
             <!-- Right -->
-            <StackPanel Grid.Column="2"
-                        Orientation="Horizontal">
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
 
                 <Button x:Name="CheckButton"
                         Style="{StaticResource ToolbarButton}"
@@ -293,6 +146,12 @@
                   SelectionUnit="FullRow"
                   HorizontalAlignment="Stretch"
                   ColumnWidth="*"
+                  EnableRowVirtualization="True"
+                  EnableColumnVirtualization="True"
+                  VirtualizingPanel.IsVirtualizing="True"
+                  VirtualizingPanel.VirtualizationMode="Recycling"
+                  CanUserSortColumns="True"
+                  CanUserResizeColumns="True"
                   MouseDoubleClick="ClientsGrid_MouseDoubleClick">
 
             <DataGrid.Columns>

@@ -291,4 +291,37 @@
   <data name="ClientWindowEnabled" xml:space="preserve">
     <value>Активен</value>
   </data>
+  <data name="ClientsExecutableNotFoundTitle" xml:space="preserve">
+    <value>Файл не найден</value>
+  </data>
+  <data name="ClientsRK7NotFoundMessage" xml:space="preserve">
+    <value>Менеджер RK7 не найден:\n\n{0}</value>
+  </data>
+  <data name="ClientsSH5NotFoundMessage" xml:space="preserve">
+    <value>Клиент SH5 не найден:\n\n{0}</value>
+  </data>
+  <data name="ClientsLaunchErrorTitle" xml:space="preserve">
+    <value>Ошибка запуска</value>
+  </data>
+  <data name="ClientsLaunchErrorMessage" xml:space="preserve">
+    <value>Не удалось запустить {0}:\n\n{1}</value>
+  </data>
+  <data name="ClientsFolderNotFoundTitle" xml:space="preserve">
+    <value>Папка не найдена</value>
+  </data>
+  <data name="ClientsFolderNotFoundMessage" xml:space="preserve">
+    <value>Папка клиента не найдена:\n\n{0}</value>
+  </data>
+  <data name="ClientsOpenFolderErrorTitle" xml:space="preserve">
+    <value>Ошибка открытия</value>
+  </data>
+  <data name="ClientsOpenFolderErrorMessage" xml:space="preserve">
+    <value>Не удалось открыть папку клиента:\n\n{0}</value>
+  </data>
+  <data name="ClientRK7Name" xml:space="preserve">
+    <value>Менеджер RK7</value>
+  </data>
+  <data name="ClientSH5Name" xml:space="preserve">
+    <value>Клиент SH5</value>
+  </data>
 </root>

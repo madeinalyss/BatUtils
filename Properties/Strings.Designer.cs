@@ -142,6 +142,15 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RK7 Manager.
+        /// </summary>
+        public static string ClientRK7Name {
+            get {
+                return ResourceManager.GetString("ClientRK7Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string ClientsAdd {
@@ -196,11 +205,65 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File not found.
+        /// </summary>
+        public static string ClientsExecutableNotFoundTitle {
+            get {
+                return ResourceManager.GetString("ClientsExecutableNotFoundTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Client folder not found:\n\n{0}.
+        /// </summary>
+        public static string ClientsFolderNotFoundMessage {
+            get {
+                return ResourceManager.GetString("ClientsFolderNotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Folder not found.
+        /// </summary>
+        public static string ClientsFolderNotFoundTitle {
+            get {
+                return ResourceManager.GetString("ClientsFolderNotFoundTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SH5.
         /// </summary>
         public static string ClientSH5 {
             get {
                 return ResourceManager.GetString("ClientSH5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SH5 Client.
+        /// </summary>
+        public static string ClientSH5Name {
+            get {
+                return ResourceManager.GetString("ClientSH5Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to launch {0}:\n\n{1}.
+        /// </summary>
+        public static string ClientsLaunchErrorMessage {
+            get {
+                return ResourceManager.GetString("ClientsLaunchErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launch error.
+        /// </summary>
+        public static string ClientsLaunchErrorTitle {
+            get {
+                return ResourceManager.GetString("ClientsLaunchErrorTitle", resourceCulture);
             }
         }
         
@@ -223,11 +286,47 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to open client folder:\n\n{0}.
+        /// </summary>
+        public static string ClientsOpenFolderErrorMessage {
+            get {
+                return ResourceManager.GetString("ClientsOpenFolderErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open error.
+        /// </summary>
+        public static string ClientsOpenFolderErrorTitle {
+            get {
+                return ResourceManager.GetString("ClientsOpenFolderErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh.
         /// </summary>
         public static string ClientsRefresh {
             get {
                 return ResourceManager.GetString("ClientsRefresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RK7 Manager not found:\n\n{0}.
+        /// </summary>
+        public static string ClientsRK7NotFoundMessage {
+            get {
+                return ResourceManager.GetString("ClientsRK7NotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SH5 Client not found:\n\n{0}.
+        /// </summary>
+        public static string ClientsSH5NotFoundMessage {
+            get {
+                return ResourceManager.GetString("ClientsSH5NotFoundMessage", resourceCulture);
             }
         }
         
