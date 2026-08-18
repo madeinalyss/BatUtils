@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Reflection;
 using System.Windows.Controls;
+using BatUtils.Services;
 using Microsoft.Win32;
 
 namespace BatUtils.Views
@@ -18,7 +18,7 @@ namespace BatUtils.Views
             OsValueText.Text = GetOsDisplayName();
             ArchValueText.Text = Environment.Is64BitOperatingSystem ? "x64" : "x86";
             DotNetValueText.Text = GetDotNetVersion();
-            AppVersionValueText.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            AppVersionValueText.Text = AppInfo.Version;
         }
 
         private static string GetOsDisplayName()

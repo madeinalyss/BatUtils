@@ -1,84 +1,282 @@
 <UserControl x:Class="BatUtils.Views.ClientsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:properties="clr-namespace:BatUtils.Properties">
+             xmlns:properties="clr-namespace:BatUtils.Properties"
+             xmlns:local="clr-namespace:BatUtils.Views">
+
     <UserControl.Resources>
-        <Style x:Key="ToolbarButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+
+        <!-- ========================================================= -->
+        <!-- BUTTONS -->
+        <!-- ========================================================= -->
+
+        <Style x:Key="ToolbarButton"
+               TargetType="Button"
+               BasedOn="{StaticResource {x:Type Button}}">
+
             <Setter Property="Height" Value="28"/>
             <Setter Property="MinWidth" Value="70"/>
             <Setter Property="Margin" Value="0,0,6,0"/>
             <Setter Property="Padding" Value="10,0"/>
+
         </Style>
-        <Style x:Key="ActionButton" BasedOn="{StaticResource ToolbarButton}" TargetType="Button">
+
+
+        <Style x:Key="ActionButton"
+               TargetType="Button"
+               BasedOn="{StaticResource ToolbarButton}">
+
             <Setter Property="Width" Value="100"/>
-            <Setter Property="Margin" Value="6,0,0,0"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+
         </Style>
-        <Style TargetType="DataGridRow" BasedOn="{StaticResource {x:Type DataGridRow}}">
-            <Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}"/>
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Height" Value="24"/>
-            <Setter Property="SnapsToDevicePixels" Value="True"/>
+
+
+        <!-- ========================================================= -->
+        <!-- DATAGRID -->
+        <!-- ========================================================= -->
+
+        <Style TargetType="DataGridRow">
+
+            <Setter Property="Background"
+                    Value="{DynamicResource WindowBackgroundBrush}"/>
+
+            <Setter Property="Foreground"
+                    Value="{DynamicResource PrimaryForegroundBrush}"/>
+
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}"/>
+
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+
+            <Setter Property="Height"
+                    Value="24"/>
+
+            <Setter Property="SnapsToDevicePixels"
+                    Value="True"/>
+
             <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource RowHoverBackgroundBrush}"/>
+
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+
+                    <Setter Property="Background"
+                            Value="{DynamicResource RowHoverBackgroundBrush}"/>
+
                 </Trigger>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource SelectedBackgroundBrush}"/>
-                    <Setter Property="Foreground" Value="{DynamicResource SelectedForegroundBrush}"/>
+
+                <Trigger Property="IsSelected"
+                         Value="True">
+
+                    <Setter Property="Background"
+                            Value="{DynamicResource SelectedBackgroundBrush}"/>
+
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource SelectedForegroundBrush}"/>
+
                 </Trigger>
+
             </Style.Triggers>
+
         </Style>
-        <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="8,3"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
+
+        <Style TargetType="DataGridCell">
+
+            <Setter Property="Background"
+                    Value="Transparent"/>
+
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+
+            <Setter Property="Padding"
+                    Value="8,3"/>
+
+            <Setter Property="FocusVisualStyle"
+                    Value="{x:Null}"/>
+
             <Style.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource SelectedBackgroundBrush}"/>
-                    <Setter Property="Foreground" Value="{DynamicResource SelectedForegroundBrush}"/>
-                    <Setter Property="BorderBrush" Value="{DynamicResource SelectedBackgroundBrush}"/>
+
+                <Trigger Property="IsSelected"
+                         Value="True">
+
+                    <Setter Property="Background"
+                            Value="{DynamicResource SelectedBackgroundBrush}"/>
+
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource SelectedForegroundBrush}"/>
+
+                    <Setter Property="BorderBrush"
+                            Value="{DynamicResource SelectedBackgroundBrush}"/>
+
                 </Trigger>
+
             </Style.Triggers>
+
         </Style>
-        <Style x:Key="CenteredCellText" TargetType="TextBlock">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="TextAlignment" Value="Center"/>
+
+
+        <Style x:Key="CenteredCellText"
+               TargetType="TextBlock">
+
+            <Setter Property="HorizontalAlignment"
+                    Value="Center"/>
+
+            <Setter Property="VerticalAlignment"
+                    Value="Center"/>
+
+            <Setter Property="TextAlignment"
+                    Value="Center"/>
+
         </Style>
-        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
-            <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}"/>
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-            <Setter Property="BorderThickness" Value="0,0,1,1"/>
-            <Setter Property="Padding" Value="8,5"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+
+        <Style TargetType="DataGridColumnHeader">
+
+            <Setter Property="Background"
+                    Value="{DynamicResource ButtonBackgroundBrush}"/>
+
+            <Setter Property="Foreground"
+                    Value="{DynamicResource PrimaryForegroundBrush}"/>
+
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}"/>
+
+            <Setter Property="BorderThickness"
+                    Value="0,0,1,1"/>
+
+            <Setter Property="Padding"
+                    Value="8,5"/>
+
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center"/>
+
         </Style>
+
+
+        <!-- ========================================================= -->
+        <!-- SOFTWARE STATUS -->
+        <!-- ========================================================= -->
+
+        <local:SoftwareInstalledConverter
+            x:Key="SoftwareInstalledConverter"/>
+
     </UserControl.Resources>
+
+
     <Grid Margin="10">
+
         <Grid.RowDefinitions>
+
+            <!-- Toolbar -->
             <RowDefinition Height="Auto"/>
+
+            <!-- Spacing -->
             <RowDefinition Height="10"/>
+
+            <!-- Clients -->
             <RowDefinition Height="3*"/>
+
+            <!-- Spacing -->
             <RowDefinition Height="8"/>
+
+            <!-- Client information -->
             <RowDefinition Height="2*"/>
+
         </Grid.RowDefinitions>
-        <Grid>
+
+
+        <!-- ========================================================= -->
+        <!-- TOOLBAR -->
+        <!-- ========================================================= -->
+
+        <Grid Grid.Row="0">
+
             <Grid.ColumnDefinitions>
+
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
+
             </Grid.ColumnDefinitions>
+
+
+            <!-- Left -->
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="AddButton" Style="{StaticResource ToolbarButton}" Content="{x:Static properties:Strings.ClientsAdd}" Click="AddButton_Click"/>
-                <Button x:Name="EditButton" Style="{StaticResource ToolbarButton}" Content="{x:Static properties:Strings.ClientsEdit}" Click="EditButton_Click"/>
-                <Button x:Name="DeleteButton" Style="{StaticResource ToolbarButton}" Content="{x:Static properties:Strings.ClientsDelete}" Click="DeleteButton_Click"/>
+
+                <Button x:Name="AddButton"
+                        Style="{StaticResource ToolbarButton}"
+                        Content="{x:Static properties:Strings.ClientsAdd}"
+                        Click="AddButton_Click"/>
+
+                <Button x:Name="EditButton"
+                        Style="{StaticResource ToolbarButton}"
+                        Content="{x:Static properties:Strings.ClientsEdit}"
+                        Click="EditButton_Click"/>
+
+                <Button x:Name="DeleteButton"
+                        Style="{StaticResource ToolbarButton}"
+                        Content="{x:Static properties:Strings.ClientsDelete}"
+                        Click="DeleteButton_Click"/>
+
             </StackPanel>
-            <Button x:Name="RefreshButton" Grid.Column="2" Style="{StaticResource ToolbarButton}" Content="{x:Static properties:Strings.ClientsRefresh}" Click="RefreshButton_Click"/>
+
+
+            <!-- Right -->
+            <StackPanel Grid.Column="2"
+                        Orientation="Horizontal">
+
+                <Button x:Name="CheckButton"
+                        Style="{StaticResource ToolbarButton}"
+                        Content="{x:Static properties:Strings.ClientCheck}"
+                        Click="CheckButton_Click"/>
+
+                <Button x:Name="MoreButton"
+                        Style="{StaticResource ToolbarButton}"
+                        Click="MoreButton_Click">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Static properties:Strings.ClientsMore}"/>
+                        <TextBlock Text=" ▾" Margin="3,0,0,0"/>
+                    </StackPanel>
+
+                    <Button.ContextMenu>
+
+                        <ContextMenu x:Name="MoreContextMenu"
+                                     Style="{StaticResource AppContextMenu}">
+
+                            <MenuItem x:Name="RefreshButton"
+                                      Style="{StaticResource AppMenuItem}"
+                                      Header="{x:Static properties:Strings.ClientsRefresh}"
+                                      Click="RefreshButton_Click"/>
+
+                            <Separator Style="{StaticResource AppMenuSeparator}"/>
+
+                            <MenuItem x:Name="ShowInactiveMenuItem"
+                                      Style="{StaticResource AppMenuItem}"
+                                      Header="{x:Static properties:Strings.ClientsShowInactive}"
+                                      IsCheckable="True"
+                                      Click="ShowInactiveMenuItem_Click"/>
+
+                        </ContextMenu>
+
+                    </Button.ContextMenu>
+
+                </Button>
+
+            </StackPanel>
+
         </Grid>
+
+
+        <!-- ========================================================= -->
+        <!-- CLIENTS TABLE -->
+        <!-- ========================================================= -->
+
         <DataGrid x:Name="ClientsGrid"
                   Grid.Row="2"
                   Background="{DynamicResource WindowBackgroundBrush}"
@@ -94,93 +292,385 @@
                   SelectionMode="Single"
                   SelectionUnit="FullRow"
                   HorizontalAlignment="Stretch"
-                  ColumnWidth="*">
+                  ColumnWidth="*"
+                  MouseDoubleClick="ClientsGrid_MouseDoubleClick">
+
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="{x:Static properties:Strings.ClientsCode}" Binding="{Binding Code}" ElementStyle="{StaticResource CenteredCellText}"/>
-                <DataGridTextColumn Width="*" Header="{x:Static properties:Strings.ClientsName}" Binding="{Binding Name}" ElementStyle="{StaticResource CenteredCellText}"/>
+
+
+                <!-- ================================================= -->
+                <!-- CODE -->
+                <!-- ================================================= -->
+
+                <DataGridTextColumn Width="*"
+                                    Header="{x:Static properties:Strings.ClientsCode}"
+                                    Binding="{Binding Code}"
+                                    ElementStyle="{StaticResource CenteredCellText}"/>
+
+
+                <!-- ================================================= -->
+                <!-- NAME -->
+                <!-- ================================================= -->
+
+                <DataGridTextColumn Width="2*"
+                                    Header="{x:Static properties:Strings.ClientsName}"
+                                    Binding="{Binding Name}"
+                                    ElementStyle="{StaticResource CenteredCellText}"/>
+
+
+                <!-- ================================================= -->
+                <!-- RK7 -->
+                <!-- ================================================= -->
+
+                <DataGridTemplateColumn Width="70"
+                                        Header="{x:Static properties:Strings.ClientRK7}">
+
+                    <DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+
+                            <TextBlock
+                                Text="{Binding Code,
+                                               Converter={StaticResource SoftwareInstalledConverter},
+                                               ConverterParameter=RK}"
+                                Style="{StaticResource CenteredCellText}"
+                                FontSize="14"/>
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+
+
+                <!-- ================================================= -->
+                <!-- SH5 -->
+                <!-- ================================================= -->
+
+                <DataGridTemplateColumn Width="70"
+                                        Header="{x:Static properties:Strings.ClientSH5}">
+
+                    <DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+
+                            <TextBlock
+                                Text="{Binding Code,
+                                               Converter={StaticResource SoftwareInstalledConverter},
+                                               ConverterParameter=SH}"
+                                Style="{StaticResource CenteredCellText}"
+                                FontSize="14"/>
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
+
         </DataGrid>
+
+
+        <!-- ========================================================= -->
+        <!-- CLIENT INFORMATION -->
+        <!-- ========================================================= -->
+
         <Border Grid.Row="4"
                 Background="{DynamicResource PanelBackgroundBrush}"
                 BorderBrush="{DynamicResource BorderBrush}"
                 BorderThickness="1"
                 Padding="12">
+
             <Grid>
+
                 <Grid.RowDefinitions>
+
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
+
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="{x:Static properties:Strings.ClientInfo}" Style="{StaticResource SectionHeader}" FontSize="15"/>
+
+
+                <!-- Header -->
+
+                <TextBlock Grid.Row="0"
+                           Text="{x:Static properties:Strings.ClientInfo}"
+                           Style="{StaticResource SectionHeader}"
+                           FontSize="15"/>
+
+
+                <!-- Three sections -->
+
                 <Grid Grid.Row="1">
+
                     <Grid.ColumnDefinitions>
+
                         <ColumnDefinition Width="*"/>
+
                         <ColumnDefinition Width="24"/>
+
                         <ColumnDefinition Width="*"/>
+
                         <ColumnDefinition Width="24"/>
+
                         <ColumnDefinition Width="*"/>
+
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Text="{x:Static properties:Strings.ClientGeneral}" Style="{StaticResource SectionHeader}"/>
-                        <Grid>
+
+
+                    <!-- ================================================= -->
+                    <!-- GENERAL -->
+                    <!-- ================================================= -->
+
+                    <Grid Grid.Column="0">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Grid.Row="0"
+                                   Text="{x:Static properties:Strings.ClientGeneral}"
+                                   Style="{StaticResource SectionHeader}"/>
+
+
+                        <Grid Grid.Row="1"
+                              Margin="0,4,0,0">
+
                             <Grid.ColumnDefinitions>
+
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
+
                             </Grid.ColumnDefinitions>
+
                             <Grid.RowDefinitions>
+
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
+
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properties:Strings.ClientsCode}" Style="{StaticResource InfoLabel}"/>
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedItem.Code, ElementName=ClientsGrid, TargetNullValue='—', FallbackValue='—'}" Style="{StaticResource InfoValue}"/>
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properties:Strings.ClientsName}" Style="{StaticResource InfoLabel}"/>
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedItem.Name, ElementName=ClientsGrid, TargetNullValue='—', FallbackValue='—'}" Style="{StaticResource InfoValue}"/>
+
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="{x:Static properties:Strings.ClientsCode}"
+                                       Style="{StaticResource InfoLabel}"/>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="{Binding SelectedItem.Code,
+                                                      ElementName=ClientsGrid,
+                                                      TargetNullValue='—',
+                                                      FallbackValue='—'}"
+                                       Style="{StaticResource InfoValue}"/>
+
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Text="{x:Static properties:Strings.ClientsName}"
+                                       Style="{StaticResource InfoLabel}"/>
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding SelectedItem.Name,
+                                                      ElementName=ClientsGrid,
+                                                      TargetNullValue='—',
+                                                      FallbackValue='—'}"
+                                       Style="{StaticResource InfoValue}"/>
+
                         </Grid>
-                    </StackPanel>
-                    <Border Grid.Column="1" Width="1" Background="{DynamicResource SeparatorBrush}" Margin="0,4"/>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Text="{x:Static properties:Strings.ClientRK7}" Style="{StaticResource SectionHeader}"/>
-                        <Grid>
+
+
+                        <!-- Explore -->
+
+                        <Button Grid.Row="2"
+                                Style="{StaticResource ActionButton}"
+                                Content="{x:Static properties:Strings.ClientExplore}"
+                                HorizontalAlignment="Left"
+                                Click="ExploreButton_Click"/>
+
+                    </Grid>
+
+
+                    <!-- Separator -->
+
+                    <Border Grid.Column="1"
+                            Width="1"
+                            Background="{DynamicResource SeparatorBrush}"
+                            Margin="0,4"/>
+
+
+                    <!-- ================================================= -->
+                    <!-- RK7 -->
+                    <!-- ================================================= -->
+
+                    <Grid Grid.Column="2">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Grid.Row="0"
+                                   Text="{x:Static properties:Strings.ClientRK7}"
+                                   Style="{StaticResource SectionHeader}"/>
+
+
+                        <Grid Grid.Row="1"
+                              Margin="0,4,0,0">
+
                             <Grid.ColumnDefinitions>
+
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
+
                             </Grid.ColumnDefinitions>
+
                             <Grid.RowDefinitions>
+
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
+
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properties:Strings.ClientAddrAndPort}" Style="{StaticResource InfoLabel}"/>
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedItem.RKEndpoint, ElementName=ClientsGrid, TargetNullValue='—', FallbackValue='—'}" Style="{StaticResource InfoValue}"/>
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properties:Strings.ClientStatus}" Style="{StaticResource InfoLabel}"/>
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedItem.RKServerStatus, ElementName=ClientsGrid, TargetNullValue='—', FallbackValue='—'}" Style="{StaticResource InfoValue}"/>
+
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="{x:Static properties:Strings.ClientAddrAndPort}"
+                                       Style="{StaticResource InfoLabel}"/>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="{Binding SelectedItem.RKEndpoint,
+                                                      ElementName=ClientsGrid,
+                                                      TargetNullValue='—',
+                                                      FallbackValue='—'}"
+                                       Style="{StaticResource InfoValue}"/>
+
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Text="{x:Static properties:Strings.ClientStatus}"
+                                       Style="{StaticResource InfoLabel}"/>
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="—"
+                                       Style="{StaticResource InfoValue}"/>
+
                         </Grid>
-                    </StackPanel>
-                    <Border Grid.Column="3" Width="1" Background="{DynamicResource SeparatorBrush}" Margin="0,4"/>
-                    <StackPanel Grid.Column="4">
-                        <TextBlock Text="{x:Static properties:Strings.ClientSH5}" Style="{StaticResource SectionHeader}"/>
-                        <Grid>
+
+
+                        <!-- Open RK7 -->
+
+                        <Button Grid.Row="2"
+                                Style="{StaticResource ActionButton}"
+                                Content="{x:Static properties:Strings.ClientOpen}"
+                                HorizontalAlignment="Left"
+                                Click="OpenRKButton_Click"/>
+
+                    </Grid>
+
+
+                    <!-- Separator -->
+
+                    <Border Grid.Column="3"
+                            Width="1"
+                            Background="{DynamicResource SeparatorBrush}"
+                            Margin="0,4"/>
+
+
+                    <!-- ================================================= -->
+                    <!-- SH5 -->
+                    <!-- ================================================= -->
+
+                    <Grid Grid.Column="4">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Grid.Row="0"
+                                   Text="{x:Static properties:Strings.ClientSH5}"
+                                   Style="{StaticResource SectionHeader}"/>
+
+
+                        <Grid Grid.Row="1"
+                              Margin="0,4,0,0">
+
                             <Grid.ColumnDefinitions>
+
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
+
                             </Grid.ColumnDefinitions>
+
                             <Grid.RowDefinitions>
+
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
+
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properties:Strings.ClientAddrAndPort}" Style="{StaticResource InfoLabel}"/>
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedItem.SHEndpoint, ElementName=ClientsGrid, TargetNullValue='—', FallbackValue='—'}" Style="{StaticResource InfoValue}"/>
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properties:Strings.ClientStatus}" Style="{StaticResource InfoLabel}"/>
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedItem.SHServerStatus, ElementName=ClientsGrid, TargetNullValue='—', FallbackValue='—'}" Style="{StaticResource InfoValue}"/>
+
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="{x:Static properties:Strings.ClientAddrAndPort}"
+                                       Style="{StaticResource InfoLabel}"/>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="{Binding SelectedItem.SHEndpoint,
+                                                      ElementName=ClientsGrid,
+                                                      TargetNullValue='—',
+                                                      FallbackValue='—'}"
+                                       Style="{StaticResource InfoValue}"/>
+
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Text="{x:Static properties:Strings.ClientStatus}"
+                                       Style="{StaticResource InfoLabel}"/>
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="—"
+                                       Style="{StaticResource InfoValue}"/>
+
                         </Grid>
-                    </StackPanel>
+
+
+                        <!-- Open SH5 -->
+
+                        <Button Grid.Row="2"
+                                Style="{StaticResource ActionButton}"
+                                Content="{x:Static properties:Strings.ClientOpen}"
+                                HorizontalAlignment="Left"
+                                Click="OpenSHButton_Click"/>
+
+                    </Grid>
+
                 </Grid>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-                    <Button Style="{StaticResource ActionButton}" Content="{x:Static properties:Strings.ClientCheck}" Click="CheckButton_Click"/>
-                    <Button Style="{StaticResource ActionButton}" Content="{x:Static properties:Strings.ClientOpen}" Click="OpenButton_Click"/>
-                    <Button Style="{StaticResource ActionButton}" Content="{x:Static properties:Strings.ClientExplore}" Click="ExploreButton_Click"/>
-                    <Button Style="{StaticResource ActionButton}" Width="40" Content="{x:Static properties:Strings.ClientMore}" Click="MoreButton_Click"/>
-                </StackPanel>
+
             </Grid>
+
         </Border>
+
     </Grid>
+
 </UserControl>

@@ -41,26 +41,85 @@
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="12"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="{x:Static properties:Strings.ClientWindowCode}" Style="{StaticResource FormLabel}"/>
-            <TextBox Grid.Row="0" Grid.Column="1" x:Name="CodeTextBox" Style="{StaticResource FormTextBox}"/>
-            <TextBlock Grid.Row="1" Text="{x:Static properties:Strings.ClientWindowName}" Style="{StaticResource FormLabel}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" x:Name="NameTextBox" Style="{StaticResource FormTextBox}"/>
-            <TextBlock Grid.Row="2" Text="{x:Static properties:Strings.ClientWindowRKAddress}" Style="{StaticResource FormLabel}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" x:Name="RKAddressTextBox" Style="{StaticResource FormTextBox}"/>
-            <TextBlock Grid.Row="3" Text="{x:Static properties:Strings.ClientWindowRKPort}" Style="{StaticResource FormLabel}"/>
-            <TextBox Grid.Row="3" Grid.Column="1" x:Name="RKPortTextBox" Style="{StaticResource FormTextBox}"/>
-            <TextBlock Grid.Row="4" Text="{x:Static properties:Strings.ClientWindowSHAddress}" Style="{StaticResource FormLabel}"/>
-            <TextBox Grid.Row="4" Grid.Column="1" x:Name="SHAddressTextBox" Style="{StaticResource FormTextBox}"/>
-            <TextBlock Grid.Row="5" Text="{x:Static properties:Strings.ClientWindowSHPort}" Style="{StaticResource FormLabel}" Margin="0,0,10,0"/>
-            <TextBox Grid.Row="5" Grid.Column="1" x:Name="SHPortTextBox" Style="{StaticResource FormTextBox}" Margin="0"/>
+
+            <TextBlock Grid.Row="0"
+                       Text="{x:Static properties:Strings.ClientWindowCode}"
+                       Style="{StaticResource FormLabel}"/>
+
+            <TextBox Grid.Row="0"
+                     Grid.Column="1"
+                     x:Name="CodeTextBox"
+                     Style="{StaticResource FormTextBox}"/>
+
+            <TextBlock Grid.Row="1"
+                       Text="{x:Static properties:Strings.ClientWindowName}"
+                       Style="{StaticResource FormLabel}"/>
+
+            <TextBox Grid.Row="1"
+                     Grid.Column="1"
+                     x:Name="NameTextBox"
+                     Style="{StaticResource FormTextBox}"/>
+
+            <TextBlock Grid.Row="2"
+                       Text="{x:Static properties:Strings.ClientWindowEnabled}"
+                       Style="{StaticResource FormLabel}"/>
+
+            <CheckBox Grid.Row="2"
+                      Grid.Column="1"
+                      x:Name="EnabledCheckBox"
+                      IsChecked="True"
+                      VerticalAlignment="Center"
+                      Margin="0,0,0,8"
+                      Foreground="{DynamicResource PrimaryForegroundBrush}"/>
+
+            <TextBlock Grid.Row="4"
+                       Text="{x:Static properties:Strings.ClientWindowRKAddress}"
+                       Style="{StaticResource FormLabel}"/>
+
+            <TextBox Grid.Row="4"
+                     Grid.Column="1"
+                     x:Name="RKAddressTextBox"
+                     Style="{StaticResource FormTextBox}"/>
+
+            <TextBlock Grid.Row="5"
+                       Text="{x:Static properties:Strings.ClientWindowRKPort}"
+                       Style="{StaticResource FormLabel}"/>
+
+            <TextBox Grid.Row="5"
+                     Grid.Column="1"
+                     x:Name="RKPortTextBox"
+                     Style="{StaticResource FormTextBox}"/>
+
+            <TextBlock Grid.Row="6"
+                       Text="{x:Static properties:Strings.ClientWindowSHAddress}"
+                       Style="{StaticResource FormLabel}"/>
+
+            <TextBox Grid.Row="6"
+                     Grid.Column="1"
+                     x:Name="SHAddressTextBox"
+                     Style="{StaticResource FormTextBox}"/>
+
+            <TextBlock Grid.Row="7"
+                       Text="{x:Static properties:Strings.ClientWindowSHPort}"
+                       Style="{StaticResource FormLabel}"
+                       Margin="0,0,10,0"/>
+
+            <TextBox Grid.Row="7"
+                     Grid.Column="1"
+                     x:Name="SHPortTextBox"
+                     Style="{StaticResource FormTextBox}"
+                     Margin="0"/>
         </Grid>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
             <Button Content="OK" Style="{StaticResource DialogButton}" IsDefault="True" Margin="0,0,8,0" Click="OkButton_Click"/>

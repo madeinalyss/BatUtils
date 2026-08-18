@@ -124,15 +124,6 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to More.
-        /// </summary>
-        public static string ClientMore {
-            get {
-                return ResourceManager.GetString("ClientMore", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
         public static string ClientOpen {
@@ -214,6 +205,15 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to More.
+        /// </summary>
+        public static string ClientsMore {
+            get {
+                return ResourceManager.GetString("ClientsMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string ClientsName {
@@ -228,6 +228,15 @@ namespace BatUtils.Properties {
         public static string ClientsRefresh {
             get {
                 return ResourceManager.GetString("ClientsRefresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show inactive.
+        /// </summary>
+        public static string ClientsShowInactive {
+            get {
+                return ResourceManager.GetString("ClientsShowInactive", resourceCulture);
             }
         }
         
@@ -264,6 +273,15 @@ namespace BatUtils.Properties {
         public static string ClientWindowEditTitle {
             get {
                 return ResourceManager.GetString("ClientWindowEditTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string ClientWindowEnabled {
+            get {
+                return ResourceManager.GetString("ClientWindowEnabled", resourceCulture);
             }
         }
         

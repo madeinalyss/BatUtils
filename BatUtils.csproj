@@ -107,9 +107,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\AppInfo.cs" />
     <Compile Include="Services\ClientStorage.cs" />
     <Compile Include="Services\LocalizationManager.cs" />
-    <Compile Include="ThemeManager.cs" />
+    <Compile Include="Services\UcsManager.cs" />
+    <Compile Include="Services\ThemeManager.cs" />
     <Compile Include="Themes\AppTheme.cs" />
     <Compile Include="Views\ClientsView.xaml.cs">
       <DependentUpon>ClientsView.xaml</DependentUpon>

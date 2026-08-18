@@ -3,7 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Windows;
 
-namespace BatUtils
+namespace BatUtils.Services
 {
     public static class ThemeManager
     {

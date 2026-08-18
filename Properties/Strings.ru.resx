@@ -189,7 +189,7 @@
   <data name="ClientExplore" xml:space="preserve">
     <value>Обзор</value>
   </data>
-  <data name="ClientMore" xml:space="preserve">
+  <data name="ClientsMore" xml:space="preserve">
     <value>Ещё</value>
   </data>
   <data name="ClientsDeleteQuestion" xml:space="preserve">
@@ -284,5 +284,11 @@
   </data>
   <data name="SettingsSystem" xml:space="preserve">
     <value>Система</value>
+  </data>
+  <data name="ClientsShowInactive" xml:space="preserve">
+    <value>Показать неактивных</value>
+  </data>
+  <data name="ClientWindowEnabled" xml:space="preserve">
+    <value>Активен</value>
   </data>
 </root>

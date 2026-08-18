@@ -1,4 +1,5 @@
-﻿using BatUtils.Themes;
+﻿using BatUtils.Services;
+using BatUtils.Themes;
 using System.Windows;
 using System.Windows.Controls;
 using Ookii.Dialogs.Wpf;

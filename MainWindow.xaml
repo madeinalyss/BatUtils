@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
         xmlns:properties="clr-namespace:BatUtils.Properties"
+        xmlns:services="clr-namespace:BatUtils.Services"
         xmlns:controls="clr-namespace:BatUtils.Controls"
         Title="{x:Static properties:Strings.AppTitle}"
         Width="850"
@@ -40,7 +41,7 @@
                 <TextBlock Margin="10,0" VerticalAlignment="Center">
                     <Hyperlink Foreground="{DynamicResource TertiaryForegroundBrush}" TextDecorations="{x:Null}" Cursor="Hand" Click="GitHubLink_Click">GitHub Project</Hyperlink>
                 </TextBlock>
-                <TextBlock Grid.Column="1" Margin="0,0,10,0" VerticalAlignment="Center" Foreground="{DynamicResource TertiaryForegroundBrush}" Text="v0.1a"/>
+                <TextBlock Grid.Column="1" Margin="0,0,10,0" VerticalAlignment="Center" Foreground="{DynamicResource TertiaryForegroundBrush}" Text="{x:Static services:AppInfo.Version}"/>
             </Grid>
         </Border>
     </Grid>

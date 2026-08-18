@@ -23,6 +23,8 @@ namespace BatUtils.Views
             CodeTextBox.Text = client.Code;
             NameTextBox.Text = client.Name;
 
+            EnabledCheckBox.IsChecked = client.Enabled;
+
             RKAddressTextBox.Text = client.RKServerAddress;
             RKPortTextBox.Text = client.RKServerPort.ToString();
 
@@ -61,7 +63,8 @@ namespace BatUtils.Views
             if (Client == null)
                 Client = new Client();
 
-            Client.Enabled = true;
+            Client.Enabled = EnabledCheckBox.IsChecked == true;
+
             Client.Code = CodeTextBox.Text.Trim();
             Client.Name = NameTextBox.Text.Trim();
 
