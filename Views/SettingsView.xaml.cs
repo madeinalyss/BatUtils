@@ -2,7 +2,6 @@ using System.Windows;
 using System.Windows.Controls;
 using BatUtils.Services;
 using BatUtils.Themes;
-using Ookii.Dialogs.Wpf;
 
 namespace BatUtils.Views
 {
@@ -57,17 +56,14 @@ namespace BatUtils.Views
 
         private void BrowseRootFolder_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new VistaFolderBrowserDialog
+            if (FolderPicker.TryPick(
+                Window.GetWindow(this),
+                Properties.Strings.SettingsRootFolder,
+                RootFolderTextBox.Text,
+                out string path))
             {
-                Description = Properties.Strings.SettingsRootFolder,
-
-                SelectedPath = RootFolderTextBox.Text,
-
-                UseDescriptionForTitle = true,
-            };
-
-            if (dialog.ShowDialog() == true)
-                RootFolderTextBox.Text = dialog.SelectedPath;
+                RootFolderTextBox.Text = path;
+            }
         }
 
         private void ThemeRadio_Checked(object sender, RoutedEventArgs e)

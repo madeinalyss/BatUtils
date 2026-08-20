@@ -22,6 +22,16 @@ BAT Utils is currently under active development. New features and improvements a
 
 The source tree is organized by responsibility: UI screens live in `Views`, reusable UI elements in `Controls`, application operations in `Services`, and data objects in `Models`. Formatting and line-ending rules are defined in `.editorconfig`; contributor conventions are described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Publishing
+
+Build the dependency-free executable with:
+
+```powershell
+msbuild BatUtils.csproj /t:PublishSingleExecutable /p:Configuration=Release
+```
+
+The resulting `publish\BatUtils.exe` requires only the native .NET Framework 4.8 runtime.
+
 ## License
 
 This project is distributed under the **BAT Non-Commercial License 1.0**.

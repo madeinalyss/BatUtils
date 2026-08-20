@@ -39,7 +39,10 @@ namespace BatUtils.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BatUtils.Properties.Strings", typeof(Strings).Assembly);
+                    string resourceName = resourceCulture != null && resourceCulture.TwoLetterISOLanguageName == "ru"
+                        ? "BatUtils.Properties.Strings.ru"
+                        : "BatUtils.Properties.Strings";
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager(resourceName, typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +60,7 @@ namespace BatUtils.Properties {
             }
             set {
                 resourceCulture = value;
+                resourceMan = null;
             }
         }
         
