@@ -1,23 +1,26 @@
-<UserControl x:Class="BatUtils.Controls.SidebarItem"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Name="Root">
-    <Border x:Name="BackgroundBorder"
-            Height="36"
-            Background="Transparent"
-            Cursor="Hand">
-        <Grid>
-            <Border x:Name="SelectionBar"
-                    Width="3"
-                    HorizontalAlignment="Left"
-                    Background="{DynamicResource SelectionBarBrush}"
-                    Visibility="Collapsed"/>
-            <TextBlock x:Name="TitleText"
-                       Margin="16,0,12,0"
-                       VerticalAlignment="Center"
-                       Foreground="{DynamicResource MutedForegroundBrush}"
-                       FontSize="13"
-                       Text="{Binding Text, ElementName=Root}"/>
-        </Grid>
-    </Border>
+<UserControl
+  x:Class="BatUtils.Controls.SidebarItem"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  x:Name="Root"
+>
+  <Border x:Name="BackgroundBorder" Height="36" Background="Transparent" Cursor="Hand">
+    <Grid>
+      <Border
+        x:Name="SelectionBar"
+        Width="3"
+        HorizontalAlignment="Left"
+        Background="{DynamicResource SelectionBarBrush}"
+        Visibility="Collapsed"
+      />
+      <TextBlock
+        x:Name="TitleText"
+        Margin="16,0,12,0"
+        VerticalAlignment="Center"
+        Foreground="{DynamicResource MutedForegroundBrush}"
+        FontSize="13"
+        Text="{Binding Text, ElementName=Root}"
+      />
+    </Grid>
+  </Border>
 </UserControl>

@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace BatUtils.Models
@@ -10,8 +10,14 @@ namespace BatUtils.Models
         private string _name;
         private string _rkServerAddress;
         private ushort _rkServerPort;
+        private bool _rkUseHttps;
         private string _shServerAddress;
         private ushort _shServerPort;
+        private bool _shUseHttps;
+        private string _rkStatus = "—";
+        private string _shStatus = "—";
+        private string _rkStatusDetails;
+        private string _shStatusDetails;
 
         public bool Enabled
         {
@@ -51,6 +57,12 @@ namespace BatUtils.Models
             }
         }
 
+        public bool RKUseHttps
+        {
+            get => _rkUseHttps;
+            set => SetField(ref _rkUseHttps, value);
+        }
+
         public string SHServerAddress
         {
             get => _shServerAddress;
@@ -71,8 +83,37 @@ namespace BatUtils.Models
             }
         }
 
-        // Combined "address:port". null when there is no address,
-        // so the XAML TargetNullValue='—' shows a dash instead of ":0".
+        public bool SHUseHttps
+        {
+            get => _shUseHttps;
+            set => SetField(ref _shUseHttps, value);
+        }
+
+        public string RKStatus
+        {
+            get => _rkStatus;
+            set => SetField(ref _rkStatus, value);
+        }
+
+        public string SHStatus
+        {
+            get => _shStatus;
+            set => SetField(ref _shStatus, value);
+        }
+
+        public string RKStatusDetails
+        {
+            get => _rkStatusDetails;
+            set => SetField(ref _rkStatusDetails, value);
+        }
+
+        public string SHStatusDetails
+        {
+            get => _shStatusDetails;
+            set => SetField(ref _shStatusDetails, value);
+        }
+
+        // Return null for a missing address so XAML displays a dash instead of ":0".
         public string RKEndpoint =>
             string.IsNullOrWhiteSpace(_rkServerAddress)
                 ? null
@@ -90,15 +131,17 @@ namespace BatUtils.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        // Returns true only when the value actually changed, so we don't
-        // raise (and re-render) on a no-op assignment.
-        protected bool SetField<T>(ref T field, T value,
-            [CallerMemberName] string propertyName = null)
+        // Avoid raising change notifications for no-op assignments.
+        protected bool SetField<T>(
+            ref T field,
+            T value,
+            [CallerMemberName] string propertyName = null
+        )
         {
             if (Equals(field, value))
                 return false;
             field = value;
-            OnPropertyChanged(propertyName);   // propertyName = the setter's name, via CallerMemberName
+            OnPropertyChanged(propertyName);
             return true;
         }
     }

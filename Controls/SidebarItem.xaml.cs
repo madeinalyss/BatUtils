@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -18,9 +18,12 @@ namespace BatUtils.Controls
             UpdateAppearance();
         }
 
-        public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register(nameof(Text), typeof(string), typeof(SidebarItem),
-                new PropertyMetadata(string.Empty));
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+            nameof(Text),
+            typeof(string),
+            typeof(SidebarItem),
+            new PropertyMetadata(string.Empty)
+        );
 
         public string Text
         {
@@ -28,9 +31,12 @@ namespace BatUtils.Controls
             set => SetValue(TextProperty, value);
         }
 
-        public static readonly DependencyProperty IsSelectedProperty =
-            DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(SidebarItem),
-                new PropertyMetadata(false, OnIsSelectedChanged));
+        public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
+            nameof(IsSelected),
+            typeof(bool),
+            typeof(SidebarItem),
+            new PropertyMetadata(false, OnIsSelectedChanged)
+        );
 
         public bool IsSelected
         {
@@ -38,9 +44,12 @@ namespace BatUtils.Controls
             set => SetValue(IsSelectedProperty, value);
         }
 
-        public static readonly DependencyProperty PageProperty =
-            DependencyProperty.Register(nameof(Page), typeof(NavigationPage), typeof(SidebarItem),
-                new PropertyMetadata(NavigationPage.Clients));
+        public static readonly DependencyProperty PageProperty = DependencyProperty.Register(
+            nameof(Page),
+            typeof(NavigationPage),
+            typeof(SidebarItem),
+            new PropertyMetadata(NavigationPage.Clients)
+        );
 
         public NavigationPage Page
         {
@@ -50,7 +59,10 @@ namespace BatUtils.Controls
 
         public event RoutedEventHandler Click;
 
-        private static void OnIsSelectedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnIsSelectedChanged(
+            DependencyObject d,
+            DependencyPropertyChangedEventArgs e
+        )
         {
             ((SidebarItem)d).UpdateAppearance();
         }
@@ -64,7 +76,10 @@ namespace BatUtils.Controls
         private void SidebarItem_MouseEnter(object sender, MouseEventArgs e)
         {
             if (!IsSelected)
-                BackgroundBorder.SetResourceReference(Border.BackgroundProperty, "SidebarHoverBackgroundBrush");
+                BackgroundBorder.SetResourceReference(
+                    Border.BackgroundProperty,
+                    "SidebarHoverBackgroundBrush"
+                );
         }
 
         private void SidebarItem_MouseLeave(object sender, MouseEventArgs e)
@@ -77,15 +92,24 @@ namespace BatUtils.Controls
             if (IsSelected)
             {
                 SelectionBar.Visibility = Visibility.Visible;
-                BackgroundBorder.SetResourceReference(Border.BackgroundProperty, "SidebarSelectedBackgroundBrush");
-                TitleText.SetResourceReference(TextBlock.ForegroundProperty, "SidebarSelectedForegroundBrush");
+                BackgroundBorder.SetResourceReference(
+                    Border.BackgroundProperty,
+                    "SidebarSelectedBackgroundBrush"
+                );
+                TitleText.SetResourceReference(
+                    TextBlock.ForegroundProperty,
+                    "SidebarSelectedForegroundBrush"
+                );
                 TitleText.FontWeight = FontWeights.SemiBold;
             }
             else
             {
                 SelectionBar.Visibility = Visibility.Collapsed;
                 BackgroundBorder.Background = Brushes.Transparent;
-                TitleText.SetResourceReference(TextBlock.ForegroundProperty, "MutedForegroundBrush");
+                TitleText.SetResourceReference(
+                    TextBlock.ForegroundProperty,
+                    "MutedForegroundBrush"
+                );
                 TitleText.FontWeight = FontWeights.Normal;
             }
         }

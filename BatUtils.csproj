@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import
+    Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+    Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"
+  />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -81,6 +84,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -101,15 +105,23 @@
     <Compile Include="Controls\SidebarItem.xaml.cs">
       <DependentUpon>SidebarItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\AppSettings.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\ClientCredentials.cs" />
+    <Compile Include="Models\CredentialStore.cs" />
+    <Compile Include="Models\ServerStatusResult.cs" />
     <Compile Include="Properties\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\AppInfo.cs" />
+    <Compile Include="Services\AppPaths.cs" />
     <Compile Include="Services\ClientStorage.cs" />
+    <Compile Include="Services\CredentialStorage.cs" />
     <Compile Include="Services\LocalizationManager.cs" />
+    <Compile Include="Services\SettingsStorage.cs" />
+    <Compile Include="Services\ServerStatusChecker.cs" />
     <Compile Include="Services\UcsManager.cs" />
     <Compile Include="Services\ThemeManager.cs" />
     <Compile Include="Themes\AppTheme.cs" />
@@ -121,6 +133,9 @@
     </Compile>
     <Compile Include="Views\InfoView.xaml.cs">
       <DependentUpon>InfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
@@ -163,9 +178,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.ru.resx" />
     <None Include="BatUtils_TemporaryKey.pfx" />
-    <None Include="Data\clients.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Data\clients.csv" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
@@ -174,7 +187,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".config\dotnet-tools.json" />
+    <None Include=".editorconfig" />
     <None Include="App.config" />
+    <None Include="CONTRIBUTING.md" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -225,6 +241,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SettingsView.xaml">

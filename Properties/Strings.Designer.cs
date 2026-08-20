@@ -70,7 +70,7 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Browse....
+        ///   Looks up a localized string similar to Browse….
         /// </summary>
         public static string Browse {
             get {
@@ -196,6 +196,15 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A client with code &quot;{0}&quot; already exists.
+        /// </summary>
+        public static string ClientsDuplicateCode {
+            get {
+                return ResourceManager.GetString("ClientsDuplicateCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string ClientsEdit {
@@ -304,6 +313,39 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Changes could not be saved. The previous data was restored.
+        ///
+        ///{0}.
+        /// </summary>
+        public static string ClientsPersistenceError {
+            get {
+                return ResourceManager.GetString("ClientsPersistenceError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save error.
+        /// </summary>
+        public static string ClientsPersistenceErrorTitle {
+            get {
+                return ResourceManager.GetString("ClientsPersistenceErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changes could not be saved, and automatic rollback also failed. Restart BAT Utils before making further changes.
+        ///
+        ///Save error: {0}
+        ///
+        ///Rollback error: {1}.
+        /// </summary>
+        public static string ClientsPersistenceRollbackError {
+            get {
+                return ResourceManager.GetString("ClientsPersistenceRollbackError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh.
         /// </summary>
         public static string ClientsRefresh {
@@ -349,6 +391,141 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Authentication was rejected by the server..
+        /// </summary>
+        public static string ClientStatusAuthenticationRejected {
+            get {
+                return ResourceManager.GetString("ClientStatusAuthenticationRejected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Checking….
+        /// </summary>
+        public static string ClientStatusChecking {
+            get {
+                return ResourceManager.GetString("ClientStatusChecking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection failed: {0}.
+        /// </summary>
+        public static string ClientStatusConnectionFailed {
+            get {
+                return ResourceManager.GetString("ClientStatusConnectionFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server returned HTTP {0} ({1})..
+        /// </summary>
+        public static string ClientStatusHttpError {
+            get {
+                return ResourceManager.GetString("ClientStatusHttpError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address or port is not configured correctly..
+        /// </summary>
+        public static string ClientStatusInvalidEndpoint {
+            get {
+                return ResourceManager.GetString("ClientStatusInvalidEndpoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok, ver. {0}.
+        /// </summary>
+        public static string ClientStatusOkVersion {
+            get {
+                return ResourceManager.GetString("ClientStatusOkVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RK7 returned invalid XML: {0}.
+        /// </summary>
+        public static string ClientStatusRkInvalidXml {
+            get {
+                return ResourceManager.GetString("ClientStatusRkInvalidXml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RK7 response did not contain ServerVersion..
+        /// </summary>
+        public static string ClientStatusRkMissingVersion {
+            get {
+                return ResourceManager.GetString("ClientStatusRkMissingVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SH5 error: {0}.
+        /// </summary>
+        public static string ClientStatusShError {
+            get {
+                return ResourceManager.GetString("ClientStatusShError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SH5 returned an error response..
+        /// </summary>
+        public static string ClientStatusShErrorResponse {
+            get {
+                return ResourceManager.GetString("ClientStatusShErrorResponse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SH5 returned invalid JSON: {0}.
+        /// </summary>
+        public static string ClientStatusShInvalidJson {
+            get {
+                return ResourceManager.GetString("ClientStatusShInvalidJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SH5 response did not contain DB.Version..
+        /// </summary>
+        public static string ClientStatusShMissingVersion {
+            get {
+                return ResourceManager.GetString("ClientStatusShMissingVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection timed out after {0} seconds..
+        /// </summary>
+        public static string ClientStatusTimeout {
+            get {
+                return ResourceManager.GetString("ClientStatusTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected error: {0}.
+        /// </summary>
+        public static string ClientStatusUnexpectedError {
+            get {
+                return ResourceManager.GetString("ClientStatusUnexpectedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unreachable.
+        /// </summary>
+        public static string ClientStatusUnreachable {
+            get {
+                return ResourceManager.GetString("ClientStatusUnreachable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Client.
         /// </summary>
         public static string ClientWindowAddTitle {
@@ -385,6 +562,15 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code contains invalid characters.
+        /// </summary>
+        public static string ClientWindowInvalidCode {
+            get {
+                return ResourceManager.GetString("ClientWindowInvalidCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid RK7 port.
         /// </summary>
         public static string ClientWindowInvalidRKPort {
@@ -412,38 +598,65 @@ namespace BatUtils.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RK Address.
+        ///   Looks up a localized string similar to RK Addr:Port.
         /// </summary>
-        public static string ClientWindowRKAddress {
+        public static string ClientWindowRKAddressPort {
             get {
-                return ResourceManager.GetString("ClientWindowRKAddress", resourceCulture);
+                return ResourceManager.GetString("ClientWindowRKAddressPort", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RK Port.
+        ///   Looks up a localized string similar to RK Login/Pass.
         /// </summary>
-        public static string ClientWindowRKPort {
+        public static string ClientWindowRKLoginPassword {
             get {
-                return ResourceManager.GetString("ClientWindowRKPort", resourceCulture);
+                return ResourceManager.GetString("ClientWindowRKLoginPassword", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SH Address.
+        ///   Looks up a localized string similar to SH Addr:Port.
         /// </summary>
-        public static string ClientWindowSHAddress {
+        public static string ClientWindowSHAddressPort {
             get {
-                return ResourceManager.GetString("ClientWindowSHAddress", resourceCulture);
+                return ResourceManager.GetString("ClientWindowSHAddressPort", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SH Port.
+        ///   Looks up a localized string similar to SH Login/Pass.
         /// </summary>
-        public static string ClientWindowSHPort {
+        public static string ClientWindowSHLoginPassword {
             get {
-                return ResourceManager.GetString("ClientWindowSHPort", resourceCulture);
+                return ResourceManager.GetString("ClientWindowSHLoginPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unencrypted connection.
+        /// </summary>
+        public static string ClientWindowUnencryptedConnectionTitle {
+            get {
+                return ResourceManager.GetString("ClientWindowUnencryptedConnectionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credentials for {0} will be sent over an unencrypted HTTP connection. Continue?.
+        /// </summary>
+        public static string ClientWindowUnencryptedConnectionWarning {
+            get {
+                return ResourceManager.GetString("ClientWindowUnencryptedConnectionWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use HTTPS.
+        /// </summary>
+        public static string ClientWindowUseHttps {
+            get {
+                return ResourceManager.GetString("ClientWindowUseHttps", resourceCulture);
             }
         }
         
@@ -516,6 +729,159 @@ namespace BatUtils.Properties {
         public static string InfoTagline {
             get {
                 return ResourceManager.GetString("InfoTagline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string LoginCancelAction {
+            get {
+                return ResourceManager.GetString("LoginCancelAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm password.
+        /// </summary>
+        public static string LoginConfirmPasswordLabel {
+            get {
+                return ResourceManager.GetString("LoginConfirmPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string LoginCreateAction {
+            get {
+                return ResourceManager.GetString("LoginCreateAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a password to protect BAT Utils credentials..
+        /// </summary>
+        public static string LoginCreateDescription {
+            get {
+                return ResourceManager.GetString("LoginCreateDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create master password.
+        /// </summary>
+        public static string LoginCreateTitle {
+            get {
+                return ResourceManager.GetString("LoginCreateTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The credential store could not be created: {0}.
+        /// </summary>
+        public static string LoginCredentialStoreCreateError {
+            get {
+                return ResourceManager.GetString("LoginCredentialStoreCreateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credential store error.
+        /// </summary>
+        public static string LoginCredentialStoreCreateErrorTitle {
+            get {
+                return ResourceManager.GetString("LoginCredentialStoreCreateErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The credential store is damaged or has an unsupported format. Your data was not changed..
+        /// </summary>
+        public static string LoginCredentialStoreInvalid {
+            get {
+                return ResourceManager.GetString("LoginCredentialStoreInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The credential store could not be read: {0}.
+        /// </summary>
+        public static string LoginCredentialStoreUnavailable {
+            get {
+                return ResourceManager.GetString("LoginCredentialStoreUnavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The master password is incorrect, or the credential store is corrupted..
+        /// </summary>
+        public static string LoginInvalidPasswordOrCorrupted {
+            get {
+                return ResourceManager.GetString("LoginInvalidPasswordOrCorrupted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string LoginPasswordLabel {
+            get {
+                return ResourceManager.GetString("LoginPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password cannot be empty..
+        /// </summary>
+        public static string LoginPasswordRequired {
+            get {
+                return ResourceManager.GetString("LoginPasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords do not match..
+        /// </summary>
+        public static string LoginPasswordsDoNotMatch {
+            get {
+                return ResourceManager.GetString("LoginPasswordsDoNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown error.
+        /// </summary>
+        public static string LoginUnknownError {
+            get {
+                return ResourceManager.GetString("LoginUnknownError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unlock.
+        /// </summary>
+        public static string LoginUnlockAction {
+            get {
+                return ResourceManager.GetString("LoginUnlockAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your master password..
+        /// </summary>
+        public static string LoginUnlockDescription {
+            get {
+                return ResourceManager.GetString("LoginUnlockDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unlock BAT Utils.
+        /// </summary>
+        public static string LoginUnlockTitle {
+            get {
+                return ResourceManager.GetString("LoginUnlockTitle", resourceCulture);
             }
         }
         

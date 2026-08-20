@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,13 +14,7 @@ namespace BatUtils.Controls
         {
             InitializeComponent();
 
-            _items = new[]
-            {
-                ClientsItem,
-                ToolsItem,
-                SettingsItem,
-                InfoItem
-            };
+            _items = new[] { ClientsItem, ToolsItem, SettingsItem, InfoItem };
 
             foreach (SidebarItem item in _items)
                 item.Click += SidebarItem_Click;

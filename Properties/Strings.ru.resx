@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -231,18 +231,6 @@
   <data name="ClientWindowName" xml:space="preserve">
     <value>Имя</value>
   </data>
-  <data name="ClientWindowRKAddress" xml:space="preserve">
-    <value>Адрес RK</value>
-  </data>
-  <data name="ClientWindowRKPort" xml:space="preserve">
-    <value>Порт RK</value>
-  </data>
-  <data name="ClientWindowSHAddress" xml:space="preserve">
-    <value>Адрес SH</value>
-  </data>
-  <data name="ClientWindowSHPort" xml:space="preserve">
-    <value>Порт SH</value>
-  </data>
   <data name="SettingsAppearance" xml:space="preserve">
     <value>Внешний вид</value>
   </data>
@@ -280,7 +268,7 @@
     <value>Корневая директория</value>
   </data>
   <data name="Browse" xml:space="preserve">
-    <value>Обзор...</value>
+    <value>Обзор…</value>
   </data>
   <data name="SettingsSystem" xml:space="preserve">
     <value>Система</value>
@@ -323,5 +311,143 @@
   </data>
   <data name="ClientSH5Name" xml:space="preserve">
     <value>Клиент SH5</value>
+  </data>
+  <data name="ClientWindowInvalidCode" xml:space="preserve">
+    <value>Код содержит недопустимые символы</value>
+  </data>
+  <data name="ClientsDuplicateCode" xml:space="preserve">
+    <value>Клиент с кодом "{0}" уже существует</value>
+  </data>
+  <data name="ClientWindowRKAddressPort" xml:space="preserve">
+    <value>RK Адрес:Порт</value>
+  </data>
+  <data name="ClientWindowRKLoginPassword" xml:space="preserve">
+    <value>RK Логин/Пароль</value>
+  </data>
+  <data name="ClientWindowSHAddressPort" xml:space="preserve">
+    <value>SH Адрес:Порт</value>
+  </data>
+  <data name="ClientWindowSHLoginPassword" xml:space="preserve">
+    <value>SH Логин/Пароль</value>
+  </data>
+  <data name="ClientWindowUnencryptedConnectionTitle" xml:space="preserve">
+    <value>Незашифрованное соединение</value>
+  </data>
+  <data name="ClientWindowUnencryptedConnectionWarning" xml:space="preserve">
+    <value>Учётные данные для {0} будут переданы по незашифрованному HTTP-соединению. Продолжить?</value>
+  </data>
+  <data name="ClientWindowUseHttps" xml:space="preserve">
+    <value>Исп. HTTPS</value>
+  </data>
+  <data name="ClientStatusChecking" xml:space="preserve">
+    <value>Проверка…</value>
+  </data>
+  <data name="ClientStatusUnreachable" xml:space="preserve">
+    <value>Недоступен</value>
+  </data>
+  <data name="ClientStatusOkVersion" xml:space="preserve">
+    <value>ОК, вер. {0}</value>
+  </data>
+  <data name="ClientStatusInvalidEndpoint" xml:space="preserve">
+    <value>Адрес или порт настроены неверно.</value>
+  </data>
+  <data name="ClientStatusAuthenticationRejected" xml:space="preserve">
+    <value>Сервер отклонил учётные данные.</value>
+  </data>
+  <data name="ClientStatusHttpError" xml:space="preserve">
+    <value>Сервер вернул HTTP {0} ({1}).</value>
+  </data>
+  <data name="ClientStatusTimeout" xml:space="preserve">
+    <value>Время ожидания подключения истекло через {0} с.</value>
+  </data>
+  <data name="ClientStatusConnectionFailed" xml:space="preserve">
+    <value>Ошибка подключения: {0}</value>
+  </data>
+  <data name="ClientStatusUnexpectedError" xml:space="preserve">
+    <value>Непредвиденная ошибка: {0}</value>
+  </data>
+  <data name="ClientStatusRkInvalidXml" xml:space="preserve">
+    <value>RK7 вернул некорректный XML: {0}</value>
+  </data>
+  <data name="ClientStatusRkMissingVersion" xml:space="preserve">
+    <value>Ответ RK7 не содержит ServerVersion.</value>
+  </data>
+  <data name="ClientStatusShInvalidJson" xml:space="preserve">
+    <value>SH5 вернул некорректный JSON: {0}</value>
+  </data>
+  <data name="ClientStatusShErrorResponse" xml:space="preserve">
+    <value>SH5 вернул ответ с ошибкой.</value>
+  </data>
+  <data name="ClientStatusShError" xml:space="preserve">
+    <value>Ошибка SH5: {0}</value>
+  </data>
+  <data name="ClientStatusShMissingVersion" xml:space="preserve">
+    <value>Ответ SH5 не содержит DB.Version.</value>
+  </data>
+  <data name="LoginInvalidPasswordOrCorrupted" xml:space="preserve">
+    <value>Неверный мастер-пароль или повреждено хранилище учётных данных.</value>
+  </data>
+  <data name="LoginCredentialStoreInvalid" xml:space="preserve">
+    <value>Хранилище учётных данных повреждено или имеет неподдерживаемый формат. Данные не были изменены.</value>
+  </data>
+  <data name="LoginCredentialStoreUnavailable" xml:space="preserve">
+    <value>Не удалось прочитать хранилище учётных данных: {0}</value>
+  </data>
+  <data name="LoginCredentialStoreCreateErrorTitle" xml:space="preserve">
+    <value>Ошибка хранилища учётных данных</value>
+  </data>
+  <data name="LoginCredentialStoreCreateError" xml:space="preserve">
+    <value>Не удалось создать хранилище учётных данных: {0}</value>
+  </data>
+  <data name="LoginUnknownError" xml:space="preserve">
+    <value>Неизвестная ошибка</value>
+  </data>
+  <data name="LoginCreateTitle" xml:space="preserve">
+    <value>Создание мастер-пароля</value>
+  </data>
+  <data name="LoginCreateDescription" xml:space="preserve">
+    <value>Создайте пароль для защиты учётных данных BAT Utils.</value>
+  </data>
+  <data name="LoginUnlockTitle" xml:space="preserve">
+    <value>Разблокировка BAT Utils</value>
+  </data>
+  <data name="LoginUnlockDescription" xml:space="preserve">
+    <value>Введите мастер-пароль.</value>
+  </data>
+  <data name="LoginPasswordLabel" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="LoginConfirmPasswordLabel" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
+  <data name="LoginCreateAction" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="LoginUnlockAction" xml:space="preserve">
+    <value>Разблокировать</value>
+  </data>
+  <data name="LoginCancelAction" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="LoginPasswordRequired" xml:space="preserve">
+    <value>Пароль не может быть пустым.</value>
+  </data>
+  <data name="LoginPasswordsDoNotMatch" xml:space="preserve">
+    <value>Пароли не совпадают.</value>
+  </data>
+  <data name="ClientsPersistenceErrorTitle" xml:space="preserve">
+    <value>Ошибка сохранения</value>
+  </data>
+  <data name="ClientsPersistenceError" xml:space="preserve">
+    <value>Не удалось сохранить изменения. Предыдущие данные восстановлены.
+
+{0}</value>
+  </data>
+  <data name="ClientsPersistenceRollbackError" xml:space="preserve">
+    <value>Не удалось сохранить изменения и выполнить автоматический откат. Перезапустите BAT Utils перед дальнейшими изменениями.
+
+Ошибка сохранения: {0}
+
+Ошибка отката: {1}</value>
   </data>
 </root>

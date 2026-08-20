@@ -1,14 +1,14 @@
-﻿using BatUtils.Themes;
-using Microsoft.Win32;
 using System;
 using System.Windows;
+using BatUtils.Themes;
+using Microsoft.Win32;
 
 namespace BatUtils.Services
 {
     public static class ThemeManager
     {
-        private static ResourceDictionary _currentTheme;
         private static AppTheme _currentMode = AppTheme.Dark;
+
         private static bool _isListening;
 
         public static void SetTheme(AppTheme mode)
@@ -16,6 +16,7 @@ namespace BatUtils.Services
             _currentMode = mode;
 
             bool isDark = mode == AppTheme.System ? IsSystemDarkTheme() : mode == AppTheme.Dark;
+
             ApplyThemeDictionary(isDark);
 
             if (mode == AppTheme.System)
@@ -27,19 +28,25 @@ namespace BatUtils.Services
         private static void ApplyThemeDictionary(bool isDark)
         {
             string themePath = isDark ? "Themes/DarkTheme.xaml" : "Themes/LightTheme.xaml";
-            var merged = Application.Current.Resources.MergedDictionaries;
 
-            for (int i = merged.Count - 1; i >= 0; i--)
+            var dictionaries = Application.Current.Resources.MergedDictionaries;
+
+            for (int i = dictionaries.Count - 1; i >= 0; i--)
             {
-                string src = merged[i].Source?.OriginalString ?? string.Empty;
-                if (src.IndexOf("DarkTheme.xaml", StringComparison.OrdinalIgnoreCase) >= 0 ||
-                    src.IndexOf("LightTheme.xaml", StringComparison.OrdinalIgnoreCase) >= 0)
-                    merged.RemoveAt(i);
+                string source = dictionaries[i].Source?.OriginalString ?? string.Empty;
+
+                if (
+                    source.IndexOf("DarkTheme.xaml", StringComparison.OrdinalIgnoreCase) >= 0
+                    || source.IndexOf("LightTheme.xaml", StringComparison.OrdinalIgnoreCase) >= 0
+                )
+                {
+                    dictionaries.RemoveAt(i);
+                }
             }
 
-            var newTheme = new ResourceDictionary { Source = new Uri(themePath, UriKind.Relative) };
-            merged.Add(newTheme);
-            _currentTheme = newTheme;
+            dictionaries.Add(
+                new ResourceDictionary { Source = new Uri(themePath, UriKind.Relative) }
+            );
         }
 
         private static void StartListening()
@@ -48,6 +55,7 @@ namespace BatUtils.Services
                 return;
 
             SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
+
             _isListening = true;
         }
 
@@ -57,13 +65,19 @@ namespace BatUtils.Services
                 return;
 
             SystemEvents.UserPreferenceChanged -= OnUserPreferenceChanged;
+
             _isListening = false;
         }
 
         private static void OnUserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
         {
-            if (e.Category != UserPreferenceCategory.General || _currentMode != AppTheme.System)
+            if (_currentMode != AppTheme.System)
                 return;
+
+            if (e.Category != UserPreferenceCategory.General)
+            {
+                return;
+            }
 
             Application.Current.Dispatcher.Invoke(() => ApplyThemeDictionary(IsSystemDarkTheme()));
         }
@@ -71,19 +85,22 @@ namespace BatUtils.Services
         private static bool IsSystemDarkTheme()
         {
             const string keyPath = @"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
+
             const string valueName = "AppsUseLightTheme";
 
             try
             {
-                using (var key = Registry.CurrentUser.OpenSubKey(keyPath))
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyPath))
                 {
                     if (key?.GetValue(valueName) is int value)
-                        return value == 0; // 0 = dark, 1 = light
+                    {
+                        return value == 0;
+                    }
                 }
             }
             catch
             {
-                // Key missing (older Windows) or inaccessible — fall back to dark.
+                // Older Windows or inaccessible registry.
             }
 
             return true;

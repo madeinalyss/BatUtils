@@ -1,10 +1,10 @@
-﻿using BatUtils.Controls;
-using BatUtils.Views;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
+using BatUtils.Controls;
+using BatUtils.Views;
 
 namespace BatUtils
 {
@@ -82,10 +82,7 @@ namespace BatUtils
             IntPtr monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
             if (monitor != IntPtr.Zero)
             {
-                var monitorInfo = new MONITORINFO
-                {
-                    cbSize = Marshal.SizeOf(typeof(MONITORINFO))
-                };
+                var monitorInfo = new MONITORINFO { cbSize = Marshal.SizeOf(typeof(MONITORINFO)) };
 
                 if (GetMonitorInfo(monitor, ref monitorInfo))
                 {
@@ -166,11 +163,13 @@ namespace BatUtils
 
         private void GitHubLink_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://github.com/dyssamik/BatUtils",
-                UseShellExecute = true
-            });
+            Process.Start(
+                new ProcessStartInfo
+                {
+                    FileName = "https://github.com/dyssamik/BatUtils",
+                    UseShellExecute = true,
+                }
+            );
         }
     }
 }

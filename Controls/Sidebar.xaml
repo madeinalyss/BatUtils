@@ -1,14 +1,33 @@
-<UserControl x:Class="BatUtils.Controls.Sidebar"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:properties="clr-namespace:BatUtils.Properties"
-             xmlns:controls="clr-namespace:BatUtils.Controls">
-    <Border Background="{DynamicResource SidebarBackgroundBrush}">
-        <StackPanel Margin="0,12">
-            <controls:SidebarItem x:Name="ClientsItem" Text="{x:Static properties:Strings.NavClients}" Page="Clients" IsSelected="True"/>
-            <controls:SidebarItem x:Name="ToolsItem" Text="{x:Static properties:Strings.NavTools}" Page="Tools"/>
-            <controls:SidebarItem x:Name="SettingsItem" Text="{x:Static properties:Strings.NavSettings}" Page="Settings"/>
-            <controls:SidebarItem x:Name="InfoItem" Text="{x:Static properties:Strings.NavInfo}" Page="Info"/>
-        </StackPanel>
-    </Border>
+<UserControl
+  x:Class="BatUtils.Controls.Sidebar"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:properties="clr-namespace:BatUtils.Properties"
+  xmlns:controls="clr-namespace:BatUtils.Controls"
+>
+  <Border Background="{DynamicResource SidebarBackgroundBrush}">
+    <StackPanel Margin="0,12">
+      <controls:SidebarItem
+        x:Name="ClientsItem"
+        Text="{x:Static properties:Strings.NavClients}"
+        Page="Clients"
+        IsSelected="True"
+      />
+      <controls:SidebarItem
+        x:Name="ToolsItem"
+        Text="{x:Static properties:Strings.NavTools}"
+        Page="Tools"
+      />
+      <controls:SidebarItem
+        x:Name="SettingsItem"
+        Text="{x:Static properties:Strings.NavSettings}"
+        Page="Settings"
+      />
+      <controls:SidebarItem
+        x:Name="InfoItem"
+        Text="{x:Static properties:Strings.NavInfo}"
+        Page="Info"
+      />
+    </StackPanel>
+  </Border>
 </UserControl>

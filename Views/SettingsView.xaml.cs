@@ -1,7 +1,7 @@
-﻿using BatUtils.Services;
-using BatUtils.Themes;
 using System.Windows;
 using System.Windows.Controls;
+using BatUtils.Services;
+using BatUtils.Themes;
 using Ookii.Dialogs.Wpf;
 
 namespace BatUtils.Views
@@ -15,19 +15,21 @@ namespace BatUtils.Views
             UpdateThemeSelection();
             UpdateLanguageSelection();
 
-            RootFolderTextBox.Text = Properties.Settings.Default.RootFolder;
+            RootFolderTextBox.Text = SettingsStorage.Current.RootFolder;
         }
 
         private void UpdateThemeSelection()
         {
-            switch (Properties.Settings.Default.Theme)
+            switch (SettingsStorage.Current.Theme)
             {
                 case "Light":
                     LightThemeRadio.IsChecked = true;
                     break;
+
                 case "System":
                     SystemThemeRadio.IsChecked = true;
                     break;
+
                 default:
                     DarkThemeRadio.IsChecked = true;
                     break;
@@ -38,7 +40,7 @@ namespace BatUtils.Views
         {
             foreach (ComboBoxItem item in LanguageComboBox.Items)
             {
-                if ((string)item.Tag == Properties.Settings.Default.Language)
+                if ((string)item.Tag == SettingsStorage.Current.Language)
                 {
                     LanguageComboBox.SelectedItem = item;
                     break;
@@ -48,8 +50,9 @@ namespace BatUtils.Views
 
         private void RootFolderTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Properties.Settings.Default.RootFolder = RootFolderTextBox.Text;
-            Properties.Settings.Default.Save();
+            SettingsStorage.Current.RootFolder = RootFolderTextBox.Text;
+
+            SettingsStorage.Save();
         }
 
         private void BrowseRootFolder_Click(object sender, RoutedEventArgs e)
@@ -57,14 +60,14 @@ namespace BatUtils.Views
             var dialog = new VistaFolderBrowserDialog
             {
                 Description = Properties.Strings.SettingsRootFolder,
+
                 SelectedPath = RootFolderTextBox.Text,
-                UseDescriptionForTitle = true
+
+                UseDescriptionForTitle = true,
             };
 
             if (dialog.ShowDialog() == true)
-            {
                 RootFolderTextBox.Text = dialog.SelectedPath;
-            }
         }
 
         private void ThemeRadio_Checked(object sender, RoutedEventArgs e)
@@ -78,17 +81,21 @@ namespace BatUtils.Views
 
             ThemeManager.SetTheme(theme);
 
-            Properties.Settings.Default.Theme = theme.ToString();
-            Properties.Settings.Default.Save();
+            SettingsStorage.Current.Theme = theme.ToString();
+
+            SettingsStorage.Save();
         }
 
         private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!(LanguageComboBox.SelectedItem is ComboBoxItem selected))
+            {
                 return;
+            }
 
-            Properties.Settings.Default.Language = selected.Tag.ToString();
-            Properties.Settings.Default.Save();
+            SettingsStorage.Current.Language = selected.Tag.ToString();
+
+            SettingsStorage.Save();
         }
     }
 }

@@ -367,3 +367,7 @@ FodyWeavers.xsd
 *.ini
 *.json
 *.csv
+
+# Keep repository tooling reproducible.
+!.config/
+!.config/dotnet-tools.json
