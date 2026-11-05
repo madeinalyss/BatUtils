@@ -166,7 +166,7 @@ namespace BatUtils
             Process.Start(
                 new ProcessStartInfo
                 {
-                    FileName = "https://github.com/dyssamik/BatUtils",
+                    FileName = "https://github.com/madeinalyss/BatUtils",
                     UseShellExecute = true,
                 }
             );
